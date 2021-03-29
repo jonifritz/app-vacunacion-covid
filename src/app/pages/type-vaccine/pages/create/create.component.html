@@ -1,1 +1,36 @@
-<p>create works!</p>
+<form nz-form [formGroup]='createForm'> 
+    <nz-form-item>
+        <nz-form-label>
+            Nombre
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Nombre" formControlName='name'>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>
+            Cantidad de Dosis
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Cantidad de Dosis" formControlName='doses_number'>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>
+            Pais
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Pais" formControlName='country'>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>
+            Laboratorio
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Laboratorio" formControlName='laboratory'>
+        </nz-form-control>
+    </nz-form-item>
+</form>
+
+<button nz-button nzType="primary" (click)='onSubmit()'>Crear</button>

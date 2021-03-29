@@ -6,6 +6,7 @@ import { ShowComponent } from './pages/show/show.component';
 import { UpdateComponent } from './pages/update/update.component';
 
 
+
 const routes: Routes = [
     { path: '', component: IndexComponent },
     { path: 'create', component: CreateComponent },
