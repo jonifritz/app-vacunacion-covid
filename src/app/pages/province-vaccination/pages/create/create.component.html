@@ -1,0 +1,22 @@
+<form nz-form [formGroup]='createForm'>
+    <nz-form-item>
+        <nz-form-label>
+            Provincia
+        </nz-form-label>
+        <nz-select name="Provincia" formControlName='id'>
+            <nz-option *ngFor="let province of provinceVaccine" [nzValue]="province.id" [nzLabel]="province.nombre"></nz-option>
+        </nz-select>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>
+            Vacunas a asignar
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Cantidad" formControlName='received_vaccines'>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+    </nz-form-item>
+</form>
+
+<button nz-button nzType="primary" (click)='onSubmit()'>Agregar</button>

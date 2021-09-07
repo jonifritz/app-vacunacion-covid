@@ -1,0 +1,18 @@
+<button nz-button nzType="primary" [routerLink]="'create'">Agregar Stock</button>
+
+<nz-table #tabla [nzData]="vaccineStock" [nzFrontPagination]="false">
+    <thead>
+        <tr>
+            <th nzColumnKey="name" [nzSortFn]="true">Nombre de la Vacuna</th>
+            <th nzColumnKey="quantity" [nzSortFn]="true">Cantidad</th>
+            <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Ingreso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of tabla.data">
+            <td>{{data.type_vaccine.name}}</td>
+            <td>{{data.quantity}}</td>
+            <td>{{data.admission_date}}</td>
+        </tr>
+    </tbody>
+</nz-table>

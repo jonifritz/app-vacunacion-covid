@@ -11,6 +11,7 @@ import { TypevaccineService } from 'src/app/core/services/typevaccine.service';
 export class CreateComponent implements OnInit {
   createForm: FormGroup;
   isLoading = false;
+
   constructor(private formBuilder: FormBuilder, private typevaccineService: TypevaccineService) { 
     this.createForm = this.formBuilder.group({
       name:[null],
@@ -23,8 +24,15 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 onSubmit(){
-  this.typevaccineService.create(this.createForm.value).subscribe(data=>console.log(data))
+  this.typevaccineService.create(this.createForm.value)
+  .subscribe(
+    response => console.log(response),
+    error => {
+      alert(error.error.message)
+    }
+    );
 }
 
 }
