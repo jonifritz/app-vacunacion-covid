@@ -36,7 +36,7 @@ export class CreateComponent implements OnInit {
     /* this.provincevaccionationService.index().subscribe(data=>this.provinceVaccine=data)*/
     
     this.provincevaccinationService.getProvinciesFromApi().subscribe(data => this.provinceVaccine = data);
-    this.typevaccineService.index().subscribe(data => this.typeVaccine = data)
+    this.typevaccineService.index().subscribe(data => this.typeVaccine = data);
     
     //this.typevaccineService.index().subscribe((typeVaccine => {this.typeVaccine = typeVaccine})
     

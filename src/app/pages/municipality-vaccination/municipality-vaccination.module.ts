@@ -9,10 +9,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { CreateComponent } from './pages/create/create.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { IndexComponent } from './pages/index/index.component';
+import { CreateComponent } from './pages/create/create.component';
 
 
 @NgModule({
-  declarations: [IndexComponent],
+  declarations: [IndexComponent, CreateComponent],
   imports: [
     CommonModule,
     NzTableModule,
