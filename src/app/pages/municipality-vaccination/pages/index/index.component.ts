@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MunicipalityVaccination, MunicipalityvaccinationService } from 'src/app/core/services/municipalityvaccination.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  municipalityVaccination:MunicipalityVaccination[]=[]
+
+  constructor(private municipalityvaccionationService: MunicipalityvaccinationService) {}
 
   ngOnInit(): void {
+
+    this.municipalityvaccionationService.index().subscribe(data=>this.municipalityVaccination=data)
   }
 
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/operators';
 
 export interface TypeVaccine {
   id: number;
@@ -15,6 +16,8 @@ export interface TypeVaccine {
 })
 export class TypevaccineService {
 
+  private getTypes= `${environment.apiUri}/type-vaccine`;
+
   constructor(private httpClient: HttpClient) {
   }
 
@@ -26,7 +29,9 @@ export class TypevaccineService {
     return this.httpClient.post(`${environment.apiUri}/type-vaccine`, body)
   }
 
- /*getTypesOfVaccines(){
-    return this.httpClient.get<TypeVaccine[]>(`${environment.apiUri}/type-vaccine`);
-  }*/
+  getTypesOfVaccines(): Observable<TypeVaccine[]>{
+    return this.httpClient.get<String[]>(this.getTypes).pipe(map(res => res['name']));
+    
+    
+  }
 }

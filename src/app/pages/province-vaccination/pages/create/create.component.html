@@ -9,6 +9,14 @@
     </nz-form-item>
     <nz-form-item>
         <nz-form-label>
+            Tipo de Vacuna
+        </nz-form-label>
+        <nz-select name="Tipo de Vacuna" formControlName='id'>
+            <nz-option *ngFor="let vacuna of typeVaccine" [nzValue]="vacuna.name" [nzLabel]="vacuna.name"></nz-option>
+        </nz-select>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>
             Vacunas a asignar
         </nz-form-label>
         <nz-form-control>

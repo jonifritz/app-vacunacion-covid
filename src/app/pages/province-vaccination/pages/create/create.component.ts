@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProvinceVaccination, ProvincevaccinationService } from 'src/app/core/services/provincevaccination.service';
 import { Observable } from 'rxjs';
+import { TypeVaccine, TypevaccineService } from 'src/app/core/services/typevaccine.service';
 
 @Component({
   selector: 'app-create',
@@ -13,8 +14,10 @@ export class CreateComponent implements OnInit {
 
   provinceVaccine: ProvinceVaccination[] = []
   provincias: String[] = []
+  typeVaccine: TypeVaccine[] = []
 
-  constructor(private formBuilder: FormBuilder, private provincevaccinationService: ProvincevaccinationService) {
+  constructor(private formBuilder: FormBuilder, private provincevaccinationService: ProvincevaccinationService, 
+    private typevaccineService: TypevaccineService) {
 
       this.createForm = this.formBuilder.group({
       id:[null],
@@ -33,6 +36,11 @@ export class CreateComponent implements OnInit {
     /* this.provincevaccionationService.index().subscribe(data=>this.provinceVaccine=data)*/
     
     this.provincevaccinationService.getProvinciesFromApi().subscribe(data => this.provinceVaccine = data);
+    this.typevaccineService.index().subscribe(data => this.typeVaccine = data)
+    
+    //this.typevaccineService.index().subscribe((typeVaccine => {this.typeVaccine = typeVaccine})
+    
+    
     //this.saveProvincies(this.provinceVaccine);
 
     //this.provincevaccinationService.create().subscribe(data =>console.log(data));
@@ -50,8 +58,8 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit() {
-    const isLargeNumber = (element) => element.id == this.createForm.value.id; 
-    const findThis = this.provinceVaccine.findIndex(isLargeNumber)
+    const existsAlready = (element) => element.id == this.createForm.value.id; 
+    const findThis = this.provinceVaccine.findIndex(existsAlready)
     this.createForm.value.complete_name = this.provinceVaccine[findThis].nombre
     this.provincevaccinationService.create(this.createForm.value).subscribe(data=>console.log(data))
   }

@@ -1,1 +1,20 @@
-<p>index works!</p>
+<button nz-button nzType="primary" [routerLink]="'create'">Asignar Vacunas</button>
+
+<nz-table #tabla [nzData]="municipalityVaccination" [nzFrontPagination]="false">
+    <thead>
+        <tr>
+            <th nzColumnKey="complete_name" [nzSortFn]="true">Nombre</th>
+            <th nzColumnKey="received_vaccines" [nzSortFn]="true">Vacunas Recibidas</th>
+            <th nzColumnKey="assigned_vaccines" [nzSortFn]="true">Vacunas Asignadas</th>
+            <th nzColumnKey="discarded_vaccines" [nzSortFn]="true">Vacunas Descartadas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of tabla.data">
+            <td>{{data.complete_name}}</td>
+            <td>{{data.received_vaccines}}</td>
+            <td>{{data.assigned_vaccines}}</td>
+            <td>{{data.discarded_vaccines}}</td>
+        </tr>
+    </tbody>
+</nz-table>
