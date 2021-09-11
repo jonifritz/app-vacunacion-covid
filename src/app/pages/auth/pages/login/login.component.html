@@ -1,0 +1,20 @@
+<form nz-form [formGroup]='createForm'> 
+    <nz-form-item>
+        <nz-form-label>
+            Email
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Email" formControlName='email'>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>
+            Password
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Password" type=password formControlName='password'>
+        </nz-form-control>
+    </nz-form-item>
+</form>
+
+<button nz-button nzType="primary" (click)='onSubmit()'>Ingresar</button>

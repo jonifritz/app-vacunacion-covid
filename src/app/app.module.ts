@@ -15,6 +15,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 
 registerLocaleData(es);
@@ -33,7 +34,8 @@ registerLocaleData(es);
     NzLayoutModule,
     NzMenuModule,
     NzSelectModule,
-    NzFormModule
+    NzFormModule,
+    NzMessageModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES }],
   bootstrap: [AppComponent]
