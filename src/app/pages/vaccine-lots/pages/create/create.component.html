@@ -1,20 +1,23 @@
 <form nz-form [formGroup]='createForm'>
+    
     <nz-form-item>
         <nz-form-label>
             Nombre de la Vacuna
         </nz-form-label>
-        <nz-select name="Nombre de la vacuna" formControlName='type_vaccine_id'>
+        <nz-select name="Nombre de la vacuna" formControlName='vaccine_id'>
             <nz-option *ngFor="let vaccine of typeVaccine" [nzValue]="vaccine.id" [nzLabel]="vaccine.name"></nz-option>
         </nz-select>
     </nz-form-item>
+
     <nz-form-item>
         <nz-form-label>
-            Cantidad
+            Descripción
         </nz-form-label>
         <nz-form-control>
-            <input nz-input placeholder="Cantidad" formControlName='quantity'>
+            <input nz-input placeholder="Descripción" formControlName='description'>
         </nz-form-control>
     </nz-form-item>
+
     <nz-form-item>
         <nz-form-label nzRequired>Fecha de admisión
         </nz-form-label>
@@ -23,6 +26,16 @@
                 nzPlaceHolder="Seleccione fecha y hora"></nz-date-picker>
         </nz-form-control>
     </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label>
+            Cantidad
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Cantidad" formControlName='quantity'>
+        </nz-form-control>
+    </nz-form-item>
+    
 </form>
 
 <button nz-button nzType="primary" (click)='onSubmit()'>Agregar</button>

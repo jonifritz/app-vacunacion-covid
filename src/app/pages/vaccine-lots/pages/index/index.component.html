@@ -1,0 +1,23 @@
+<button nz-button nzType="primary" [routerLink]="'create'">Agregar Lote</button>
+
+<nz-table #tabla [nzData]="vaccineLots" [nzFrontPagination]="false">
+    <thead>
+        <tr>
+            <th nzColumnKey="name" [nzSortFn]="true">Nombre de la Vacuna</th>
+            <th nzColumnKey="description" [nzSortFn]="true">Descripción</th>
+            <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Ingreso</th>
+            <th nzColumnKey="quantity" [nzSortFn]="true">Cantidad</th>
+            <th nzColumnKey="used" [nzSortFn]="true">Enviadas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of tabla.data">
+            <td>{{data.vaccine_name.name}}</td>
+            <td>{{data.description}}</td>
+            <td>{{data.admission_date}}</td>
+            <td>{{data.quantity}}</td>
+            <td>{{data.used}}</td>
+
+        </tr>
+    </tbody>
+</nz-table>

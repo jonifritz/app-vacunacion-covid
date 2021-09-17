@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { VaccineStockRoutingModule } from './vaccine-stock-routing.module';
+import { VaccineLotsRoutingModule } from './vaccine-lots-routing.module';
 import { CreateComponent } from './pages/create/create.component';
 import { IndexComponent } from './pages/index/index.component';
-import { ShowComponent } from './pages/show/show.component';
-import { UpdateComponent } from './pages/update/update.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
@@ -15,10 +13,10 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 
 @NgModule({
-  declarations: [CreateComponent, IndexComponent, ShowComponent, UpdateComponent],
+  declarations: [IndexComponent, CreateComponent],
   imports: [
     CommonModule,
-    VaccineStockRoutingModule,
+    VaccineLotsRoutingModule,
     NzTableModule,
     NzButtonModule,
     NzFormModule,
@@ -28,4 +26,4 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     NzDatePickerModule
   ]
 })
-export class VaccineStockModule { }
+export class VaccineLotsModule { }

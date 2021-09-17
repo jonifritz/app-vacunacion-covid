@@ -22,14 +22,13 @@ export class CreateComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private provincevaccinationService: ProvincevaccinationService, 
     private typevaccineService: TypevaccineService, private notificationService: NotificationService, 
-    private vaccineStockService: VaccinestockService, private router: Router) {
+    private router: Router) {
 
       this.createForm = this.formBuilder.group({
-      id:[null],
-      received_vaccines:[null],
-      assigned_vaccines:[null],
-      discarded_vaccines:[null],
-    })
+        id: [null],
+        vaccine_id: [null],
+        received_lots: [null],
+      })
 
     //this.provincevaccinationService.getProvincies().subscribe(data => this.provinceVaccine = data);
 
@@ -54,15 +53,14 @@ export class CreateComponent implements OnInit {
   onSubmit() {
     const existsAlready = (element) => element.id == this.createForm.value.id; 
     const findThis = this.provinceVaccine.findIndex(existsAlready)
-
-    this.createForm.value.complete_name = this.provinceVaccine[findThis].nombre
+    let nombre =  this.provinceVaccine[findThis].nombre
+    this.createForm.value.complete_name = nombre
 
     this.provincevaccinationService.create(this.createForm.value).subscribe(
       response=> {
       console.log(response);
       this.notificationService.success("Se han asignado "+this.createForm.value.received_vaccines+" vacunas a "+this.provinceVaccine[findThis].nombre);
       this.router.navigate(['/province-vaccination']);
-      
     },
     error => {
       this.notificationService.error("Ha ocurrido un error. Por favor intente nuevamente");
