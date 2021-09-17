@@ -13,6 +13,7 @@ export interface User {
 export interface Role {
   id: number;
   name: string; 
+  code: string;
 }
 
 export interface Session{
@@ -35,12 +36,12 @@ export class AuthService {
     return this.httpClient.post(`${environment.apiUri}/login`, user)
   }
 
-  register(user) {
-    return this.httpClient.post(`${environment.apiUri}/register`, user)
+  register(user, headers) {
+    return this.httpClient.post(`${environment.apiUri}/register`, user, headers)
   }
 
   logout(user){
-    return this.httpClient.post(`${environment.apiUri}/logout`, user)
+    //return this.httpClient.delete(`${environment.apiUri}/logout`,user)
   }
 
 }

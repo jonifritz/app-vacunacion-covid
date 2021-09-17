@@ -11,6 +11,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NzInputModule,
     FormsModule,
     ReactiveFormsModule,
+    NzSelectModule
   ]
 })
 export class AuthModule { }

@@ -1,4 +1,4 @@
-<form nz-form [formGroup]='createForm'> 
+<form nz-form [formGroup]='createForm'>
     <nz-form-item>
         <nz-form-label>
             Nombre
@@ -20,9 +20,81 @@
             Contraseña
         </nz-form-label>
         <nz-form-control>
-            <input nz-input type= password placeholder="Password" formControlName='password'>
+            <input nz-input type=password placeholder="Password" formControlName='password'>
         </nz-form-control>
     </nz-form-item>
+
+    <div *ngIf="actualUser.role_id===1; then superAdmin"> </div>
+    <ng-template #superAdmin formControlName='rol_id' {{rol_id.value=2}}> </ng-template>
+
+
+    <div *ngIf="actualUser.role_id===2; then adminNacional"> </div>
+    <ng-template #adminNacional formControlName='rol_id' value='3'>
+        
+        <nz-form-item>
+            <nz-form-label>
+                Rol
+            </nz-form-label>
+            <nz-form-control>
+                <input nz-text  formControlName='rol_id' value={{newUserRol}} disabled  >
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label>
+                Provincia
+            </nz-form-label>
+            <nz-select name="Provincia" formControlName='region_id'>
+                <nz-option *ngFor="let province of provinceVaccine" [nzValue]="province.id" [nzLabel]="province.nombre">
+                </nz-option>
+            </nz-select>
+        </nz-form-item>
+    </ng-template>
+
+    <div *ngIf="actualUser.role_id===3; then adminProvincial"> </div>
+    <ng-template #adminProvincial newUserRol=4>
+
+        <nz-form-label>
+            Rol = {{newUserRol}}
+        </nz-form-label>
+
+        <nz-form-item>
+            <nz-form-label>
+                Municipio
+            </nz-form-label>
+            <nz-select name="Municipio" formControlName='locality_id'>
+                <nz-option *ngFor="let municipality of municipalityVaccine" [nzValue]="municipality.id" [nzLabel]="municipality.nombre"></nz-option>
+            </nz-select>
+        </nz-form-item>
+
+    </ng-template>
+
+    <div *ngIf="actualUser.role_id===4; then adminMunicipal"> </div>
+    <ng-template #adminMunicipal newUserRol=5>
+
+        <nz-form-label>
+            Rol
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-text placeholder="rol_id" formControlName='rol_id'>
+        </nz-form-control>
+
+        <nz-form-item>
+            <nz-form-label>
+                Centro de Vacunación
+            </nz-form-label>
+            <nz-select name="Centro de Vacunación" formControlName='vacunatory_center_id'>
+                <nz-option *ngFor="let province of provinceVaccine" [nzValue]="province.id" [nzLabel]="province.nombre">
+                </nz-option>
+            </nz-select>
+        </nz-form-item>
+    </ng-template>
+
+
+
+
+
+
+
 </form>
 
 <button nz-button nzType="primary" (click)='onSubmit()'>Crear</button>

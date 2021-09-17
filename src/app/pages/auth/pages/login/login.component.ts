@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService, User } from 'src/app/core/services/auth.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   isLoading = false;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, 
-    private notificationService: NotificationService) {
+    private notificationService: NotificationService, private router: Router) {
       this.createForm = this.formBuilder.group({
       name:[null],
       email:[null],
@@ -31,8 +32,9 @@ export class LoginComponent implements OnInit {
       (response:any) => {
         this.notificationService.success("Se ha ingresado correctamente");
         this.saveToken(response.token);
-        this.saveUser(response.user);
-        
+        this.saveUser(response.user);   
+        this.router.navigate(['/']);
+
       },
       error => {
         this.notificationService.error("Credenciales incorrectas")
