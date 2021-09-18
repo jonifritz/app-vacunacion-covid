@@ -31,7 +31,9 @@ export class TypevaccineService {
 
   getTypesOfVaccines(): Observable<TypeVaccine[]>{
     return this.httpClient.get<String[]>(this.getTypes).pipe(map(res => res['name']));
-    
-    
+  }
+
+  show(id):Observable<TypeVaccine[]> {
+    return this.httpClient.get<TypeVaccine[]>(`${environment.apiUri}/type-vaccine/`+id);
   }
 }

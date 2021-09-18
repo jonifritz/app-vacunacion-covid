@@ -1,4 +1,4 @@
-<form nz-form [formGroup]='createForm'>
+<form nz-form [formGroup]='createForm' nzLayout="vertical">
     <nz-form-item>
         <nz-form-label>
             Nombre
@@ -16,29 +16,20 @@
         </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-        <nz-form-label>
+        <nz-form-label nzFor="new-password">
             Contraseña
         </nz-form-label>
         <nz-form-control>
-            <input nz-input type=password placeholder="Password" formControlName='password'>
+            <input nz-input type=password placeholder="Password" formControlName='password' id="new-password">
         </nz-form-control>
     </nz-form-item>
 
     <div *ngIf="actualUser.role_id===1; then superAdmin"> </div>
-    <ng-template #superAdmin formControlName='rol_id' {{rol_id.value=2}}> </ng-template>
+    <ng-template #superAdmin> </ng-template>
 
 
     <div *ngIf="actualUser.role_id===2; then adminNacional"> </div>
-    <ng-template #adminNacional formControlName='rol_id' value='3'>
-        
-        <nz-form-item>
-            <nz-form-label>
-                Rol
-            </nz-form-label>
-            <nz-form-control>
-                <input nz-text  formControlName='rol_id' value={{newUserRol}} disabled  >
-            </nz-form-control>
-        </nz-form-item>
+    <ng-template #adminNacional value='3'>
         <nz-form-item>
             <nz-form-label>
                 Provincia
@@ -62,7 +53,8 @@
                 Municipio
             </nz-form-label>
             <nz-select name="Municipio" formControlName='locality_id'>
-                <nz-option *ngFor="let municipality of municipalityVaccine" [nzValue]="municipality.id" [nzLabel]="municipality.nombre"></nz-option>
+                <nz-option *ngFor="let municipality of municipalityVaccine" [nzValue]="municipality.id"
+                    [nzLabel]="municipality.nombre"></nz-option>
             </nz-select>
         </nz-form-item>
 
@@ -70,13 +62,6 @@
 
     <div *ngIf="actualUser.role_id===4; then adminMunicipal"> </div>
     <ng-template #adminMunicipal newUserRol=5>
-
-        <nz-form-label>
-            Rol
-        </nz-form-label>
-        <nz-form-control>
-            <input nz-text placeholder="rol_id" formControlName='rol_id'>
-        </nz-form-control>
 
         <nz-form-item>
             <nz-form-label>

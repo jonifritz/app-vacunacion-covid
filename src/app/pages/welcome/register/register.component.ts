@@ -25,37 +25,29 @@ export class RegisterComponent implements OnInit {
   provinceUser = this.actualUser.region_id;
   newUserRol = this.actualUser.role_id + 1;
 
-  headers = new HttpHeaders({
-    'Authorization': `Bearer ${localStorage.getItem('token')}`
-  });
-
-
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private notificationService: NotificationService, private router: Router, 
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private notificationService: NotificationService, private router: Router,
     private provincevaccinationService: ProvincevaccinationService, private municipalityvaccinationService: MunicipalityvaccinationService) {
     this.createForm = this.formBuilder.group({
-      name:[null],
-      email:[null],
-      password:[null],
-      rol_id:[null],
-      region_id:[null],
-      locality_id:[null],
-      vacunatory_center_id:[null],
+      name: [null],
+      email: [null],
+      password: [null],
+      region_id: [null],
+      locality_id: [null],
+      vacunatory_center_id: [null],
     })
-   }
+  }
 
   ngOnInit(): void {
-    
+
     this.provincevaccinationService.getProvinciesFromApi().subscribe(data => this.provinceVaccine = data);
-    
+
     this.municipalityvaccinationService.getMunicipalitiesFromApi(this.provinceUser)
-    .subscribe(data => this.municipalityVaccine = data);
+      .subscribe(data => this.municipalityVaccine = data);
 
   }
 
-  onSubmit(){
-    console.log('rol: '+this.actualUser.role_id);
-    this.setRol();
-    this.authService.register(this.createForm.value, this.headers).subscribe(
+  onSubmit() {
+    this.authService.register(this.createForm.value).subscribe(
       response => {
         this.notificationService.success("Registro Exitoso");
         console.log(response);
@@ -65,7 +57,7 @@ export class RegisterComponent implements OnInit {
         this.notificationService.error("Ha ocurrido un error. Por favor intente nuevamente");
         console.log(error);
       }
-      );
+    );
 
   }
 

@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 export interface User {
@@ -12,11 +15,11 @@ export interface User {
 
 export interface Role {
   id: number;
-  name: string; 
+  name: string;
   code: string;
 }
 
-export interface Session{
+export interface Session {
   token: String;
   user: User;
 }
@@ -26,21 +29,53 @@ export interface Session{
   providedIn: 'root'
 })
 export class AuthService {
-  
-  //private api_login = `${environment.apiUri}/auth/login`;
 
-  constructor(private httpClient: HttpClient) { 
+  private currentUserSubject: BehaviorSubject<{
+    user: User;
+    access_token: string;
+  }>;
+
+  currentUser: Observable<{
+    user: User;
+    access_token: string;
+  }>;
+
+  constructor(private httpClient: HttpClient, private router: Router) {
+    this.currentUserSubject = new BehaviorSubject<{
+      user: User;
+      access_token: string;
+    }>({
+      user: JSON.parse(localStorage.getItem('user')),
+      access_token: JSON.parse(localStorage.getItem('token')),
+    });
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentTokenValue(): string {
+    return this.currentUserSubject.value?.access_token;
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value.user;
   }
 
   login(user) {
-    return this.httpClient.post(`${environment.apiUri}/login`, user)
+
+    return this.httpClient.post(`${environment.authUri}/login`, user).pipe(tap((response: { token: string, user: any }) => {
+      localStorage.setItem('user', JSON.stringify(response.user));
+      localStorage.setItem('token', JSON.stringify(response.token));
+      this.currentUserSubject.next({ user: response.user, access_token: response.token });
+    }));
   }
 
-  register(user, headers) {
-    return this.httpClient.post(`${environment.apiUri}/register`, user, headers)
+  register(user) {
+    return this.httpClient.post(`${environment.apiUri}/register`, user)
   }
 
-  logout(user){
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    this.router.navigate(['/auth/login']);
     //return this.httpClient.delete(`${environment.apiUri}/logout`,user)
   }
 

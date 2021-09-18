@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
-  { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
-  { path: 'type-vaccine', loadChildren: () => import('./pages/type-vaccine/type-vaccine.module').then(m => m.TypeVaccineModule) },
-  { path: 'vaccine-lots', loadChildren: () => import('./pages/vaccine-lots/vaccine-lots.module').then(m => m.VaccineLotsModule) },
-  { path: 'province-vaccination', loadChildren: () => import('./pages/province-vaccination/province-vaccination.module').then(m => m.ProvinceVaccinationModule) },
-  { path: 'municipality-vaccination', loadChildren: () => import('./pages/municipality-vaccination/municipality-vaccination.module').then(m => m.MunicipalityVaccinationModule) },
+  { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+  {
+    path: 'dashboard', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule), canActivate: [AuthGuard]
+  },
   { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) }
 
 ];

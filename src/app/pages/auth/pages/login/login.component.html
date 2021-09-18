@@ -1,20 +1,31 @@
-<form nz-form [formGroup]='createForm'> 
-    <nz-form-item>
-        <nz-form-label>
-            Email
-        </nz-form-label>
-        <nz-form-control>
-            <input nz-input placeholder="Email" formControlName='email'>
-        </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-        <nz-form-label>
-            Password
-        </nz-form-label>
-        <nz-form-control>
-            <input nz-input placeholder="Password" type=password formControlName='password'>
-        </nz-form-control>
-    </nz-form-item>
-</form>
+<nz-layout style="height: 100%;">
+    <nz-content>
+        <div nz-row style="justify-content: center; align-items: center; height: 100%;">
+            <div nz-col nzXs="24" nzMd="12">
+                <h1>Argentina - Vacunación Covid</h1>
+                <form nz-form [formGroup]="createForm" nzLayout="vertical" (ngSubmit)="onSubmit()">
+                    <nz-form-item>
+                        <nz-form-label nzFor="username">
+                            Correo Electronico
+                        </nz-form-label>
+                        <nz-form-control>
+                            <input nz-input placeholder="Ingrese su correo electronico" formControlName='email'
+                                id="username">
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label nzFor="current-password">
+                            Contraseña
+                        </nz-form-label>
+                        <nz-form-control>
+                            <input nz-input placeholder="Contraseña" type=password formControlName='password'
+                                id="current-password">
+                        </nz-form-control>
+                    </nz-form-item>
+                </form>
 
-<button nz-button nzType="primary" (click)='onSubmit()'>Ingresar</button>
+                <button nz-button nzType="primary" [nzLoading]="isLoading" (click)='onSubmit()'>Ingresar</button>
+            </div>
+        </div>
+    </nz-content>
+</nz-layout>
