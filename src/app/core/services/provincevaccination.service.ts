@@ -19,8 +19,6 @@ export interface ProvinceVaccination {
 export class ProvincevaccinationService {
 
   private province_api = `https://apis.datos.gob.ar/georef/api/provincias`;
-  /*private api2= 'https://jsonplaceholder.typicode.com/todos';*/
-
   private provinces=null;
 
   constructor(private httpClient: HttpClient) {
@@ -41,7 +39,8 @@ export class ProvincevaccinationService {
     return this.httpClient.post(`${environment.apiUri}/province-vaccination`, body)
   }
 
-  
-
+  show(id): Observable<ProvinceVaccination[]> {
+    return this.httpClient.get<ProvinceVaccination[]>(`${environment.apiUri}/province-vaccination/`+id);
+  }
 
 }

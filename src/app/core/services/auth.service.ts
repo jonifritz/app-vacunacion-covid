@@ -11,6 +11,8 @@ export interface User {
   email: string;
   password?: string;
   role: Role;
+  region_id: string;
+  locality_id: string;
 }
 
 export interface Role {
@@ -76,7 +78,6 @@ export class AuthService {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
-    //return this.httpClient.delete(`${environment.apiUri}/logout`,user)
   }
 
 }

@@ -1,0 +1,21 @@
+<nz-form-item>
+    <button nz-button nzType="primary" [routerLink]="'create'">Agregar Vacunas</button>
+</nz-form-item>
+<nz-table #tabla [nzData]="vacunatoryCenterVaccination" [nzFrontPagination]="false">
+    <thead>
+        <tr>
+            <th nzColumnKey="name" [nzSortFn]="true">Nombre</th>
+            <th nzColumnKey="doses_number" [nzSortFn]="true">Tipo de Vacuna</th>
+            <th nzColumnKey="country" [nzSortFn]="true">Localidad</th>
+            <th nzColumnKey="laboratory" [nzSortFn]="true">Vacunas Recibidas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of tabla.data">
+            <td>{{data.name}}</td>
+            <td>{{data.typeVaccine}}</td>
+            <td>{{data.locality_id}}</td>
+            <td>{{data.received_lots}}</td>
+        </tr>
+    </tbody>
+</nz-table>

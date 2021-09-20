@@ -25,11 +25,21 @@
     </nz-form-item>
 
     <div *ngIf="actualUser.role_id===1; then superAdmin"> </div>
-    <ng-template #superAdmin> </ng-template>
-
+    <ng-template #superAdmin>
+        <nz-form-item>
+            <nz-form-label>
+                Rol = Nacional
+            </nz-form-label>
+        </nz-form-item>
+    </ng-template>
 
     <div *ngIf="actualUser.role_id===2; then adminNacional"> </div>
-    <ng-template #adminNacional value='3'>
+    <ng-template #adminNacional>
+        <nz-form-item>
+            <nz-form-label>
+                Rol: Provincial
+            </nz-form-label>
+        </nz-form-item>
         <nz-form-item>
             <nz-form-label>
                 Provincia
@@ -43,11 +53,11 @@
 
     <div *ngIf="actualUser.role_id===3; then adminProvincial"> </div>
     <ng-template #adminProvincial newUserRol=4>
-
-        <nz-form-label>
-            Rol = {{newUserRol}}
-        </nz-form-label>
-
+        <nz-form-item>
+            <nz-form-label>
+                Rol = Municipal
+            </nz-form-label>
+        </nz-form-item>
         <nz-form-item>
             <nz-form-label>
                 Municipio
@@ -57,12 +67,15 @@
                     [nzLabel]="municipality.nombre"></nz-option>
             </nz-select>
         </nz-form-item>
-
     </ng-template>
 
     <div *ngIf="actualUser.role_id===4; then adminMunicipal"> </div>
     <ng-template #adminMunicipal newUserRol=5>
-
+        <nz-form-item>
+            <nz-form-label>
+                Rol = Centro Vacunatorio
+            </nz-form-label>
+        </nz-form-item>
         <nz-form-item>
             <nz-form-label>
                 Centro de Vacunación
@@ -73,13 +86,6 @@
             </nz-select>
         </nz-form-item>
     </ng-template>
-
-
-
-
-
-
-
 </form>
 
-<button nz-button nzType="primary" (click)='onSubmit()'>Crear</button>
+<button nz-button nzType="primary" [nzLoading]="isLoading" (click)='onSubmit()'>Crear Usuario</button>

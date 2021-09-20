@@ -9,10 +9,11 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './pages/create/create.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { ShowComponent } from './pages/show/show.component';
 
 
 @NgModule({
-  declarations: [IndexComponent, CreateComponent],
+  declarations: [IndexComponent, CreateComponent, ShowComponent],
   imports: [
     CommonModule,
     ProvinceVaccinationRoutingModule,

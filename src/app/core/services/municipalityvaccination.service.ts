@@ -9,9 +9,7 @@ export interface MunicipalityVaccination {
   received_vaccines: string;
   assigned_vaccines: string;
   discarded_vaccines: string;
-
 }
-
 
 @Injectable({
   providedIn: 'root'

@@ -11,6 +11,7 @@ const routes: Routes = [
       { path: 'vaccine-lots', loadChildren: () => import('../vaccine-lots/vaccine-lots.module').then(m => m.VaccineLotsModule) },
       { path: 'province-vaccination', loadChildren: () => import('../province-vaccination/province-vaccination.module').then(m => m.ProvinceVaccinationModule) },
       { path: 'municipality-vaccination', loadChildren: () => import('../municipality-vaccination/municipality-vaccination.module').then(m => m.MunicipalityVaccinationModule) },
+      { path: 'vacunatory-center-vaccination', loadChildren: () => import('../vacunatory-center-vaccination/vacunatory-center-vaccination.module').then(m => m.VacunatoryCenterVaccinationModule) },
       { path: 'register', component: RegisterComponent }
     ]
   },

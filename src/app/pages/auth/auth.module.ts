@@ -13,10 +13,12 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { IndexComponent } from './pages/index/index.component';
+import { EditComponent } from './pages/edit/edit.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, LogoutComponent, ResetPasswordComponent],
+  declarations: [LoginComponent, LogoutComponent, ResetPasswordComponent, IndexComponent, EditComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

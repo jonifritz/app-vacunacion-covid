@@ -1,7 +1,3 @@
-<nz-form-item>
-    <button nz-button nzType="primary" [routerLink]="'create'">Agregar Lote</button>
-</nz-form-item>
-
 <nz-table #tabla [nzData]="vaccineLots" [nzFrontPagination]="false">
     <thead>
         <tr>
@@ -10,7 +6,6 @@
             <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Ingreso</th>
             <th nzColumnKey="quantity" [nzSortFn]="true">Cantidad</th>
             <th nzColumnKey="used" [nzSortFn]="true">Enviadas</th>
-            <th nzColumnKey="details" [nzSortFn]="true">Detalle</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +15,6 @@
             <td>{{data.admission_date}}</td>
             <td>{{data.quantity}}</td>
             <td>{{data.used}}</td>
-            <td><button nz-button nzType="primary" [routerLink]="'show/'+data.id">Ver</button></td>
 
         </tr>
     </tbody>

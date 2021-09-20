@@ -1,30 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { VaccineLotsRoutingModule } from './vaccine-lots-routing.module';
-import { CreateComponent } from './pages/create/create.component';
-import { IndexComponent } from './pages/index/index.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
-import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzInputModule } from 'ng-zorro-antd/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+
+import { VacunatoryCenterVaccinationRoutingModule } from './vacunatory-center-vaccination-routing.module';
+import { CreateComponent } from './pages/create/create.component';
+import { IndexComponent } from './pages/index/index.component';
 import { ShowComponent } from './pages/show/show.component';
 
 
 @NgModule({
-  declarations: [IndexComponent, CreateComponent, ShowComponent],
+  declarations: [CreateComponent, IndexComponent, ShowComponent],
   imports: [
     CommonModule,
-    VaccineLotsRoutingModule,
+    VacunatoryCenterVaccinationRoutingModule,
     NzTableModule,
     NzButtonModule,
     NzFormModule,
+    NzInputModule,
     FormsModule,
     ReactiveFormsModule,
     NzSelectModule,
-    NzDatePickerModule
   ]
 })
-export class VaccineLotsModule { }
+export class VacunatoryCenterVaccinationModule { }

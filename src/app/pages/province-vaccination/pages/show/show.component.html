@@ -1,0 +1,21 @@
+<nz-table #tabla [nzData]="ProvinceVaccination" [nzFrontPagination]="false">
+    <thead>
+        <tr>
+            <th nzColumnKey="name" [nzSortFn]="true">Provincia</th>
+            <th nzColumnKey="vaccine_name" [nzSortFn]="true">Vacuna</th>
+            <th nzColumnKey="description" [nzSortFn]="true">Lotes Usados</th>
+            <th nzColumnKey="admission_date" [nzSortFn]="true">Vacunas Recibidas en el lote</th>
+            <th nzColumnKey="used" [nzSortFn]="true">Enviadas</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of tabla.data">
+            <td>{{data.complete_name}}</td>
+            <td>{{data.id.vaccine_name}}</td>
+            <td>{{data.used_lots}}</td>
+            <td>{{data.received_lots}}</td>
+            <td>{{data.used}}</td>
+
+        </tr>
+    </tbody>
+</nz-table>

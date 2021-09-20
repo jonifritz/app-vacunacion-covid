@@ -30,4 +30,8 @@ export class VaccineLotsService {
   create(body) {
     return this.httpClient.post(`${environment.apiUri}/vaccine-lots`, body)
   }
+
+  show(id): Observable<VaccineLots[]> {
+    return this.httpClient.get<VaccineLots[]>(`${environment.apiUri}/vaccine-lots/`+id);
+  }
 }

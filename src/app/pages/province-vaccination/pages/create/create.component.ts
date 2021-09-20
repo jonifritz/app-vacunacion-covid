@@ -6,7 +6,7 @@ import { TypeVaccine, TypevaccineService } from 'src/app/core/services/typevacci
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { VaccinestockService } from 'src/app/core/services/vaccinestock.service';
 import { Router } from '@angular/router';
-import { find } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create',
@@ -14,7 +14,8 @@ import { find } from 'rxjs/operators';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-  createForm: FormGroup
+  createForm: FormGroup;
+  isLoading = false;
 
   provinceVaccine: ProvinceVaccination[] = []
   provincias: String[] = []
@@ -33,21 +34,9 @@ export class CreateComponent implements OnInit {
     //this.provincevaccinationService.getProvincies().subscribe(data => this.provinceVaccine = data);
 
   }
-  ngOnInit(): void {
-    /* this.provincevaccionationService.index().subscribe(data=>this.provinceVaccine=data)*/
-    
+  ngOnInit(): void {    
     this.provincevaccinationService.getProvinciesFromApi().subscribe(data => this.provinceVaccine = data);
     this.typevaccineService.index().subscribe(data => this.typeVaccine = data);
-    
-    //this.typevaccineService.index().subscribe((typeVaccine => {this.typeVaccine = typeVaccine})
-    //this.saveProvincies(this.provinceVaccine);
-    //this.provincevaccinationService.create().subscribe(data =>console.log(data));
-    //this.formBuilder.complete_name=this.provinceVaccine.nombre;
-    //this.provincevaccinationService.create(this.provinceVaccine).subscribe(data =>console.log(data));
-    //this.saveProvincies(this.provinceVaccine);
-    //console.log(this.provinceVaccine);
-    //this.provincevaccinationService.create(this.createForm.value).subscribe(data =>console.log(data));
-    
   }
 
   onSubmit() {
@@ -56,10 +45,14 @@ export class CreateComponent implements OnInit {
     let nombre =  this.provinceVaccine[findThis].nombre
     this.createForm.value.complete_name = nombre
 
-    this.provincevaccinationService.create(this.createForm.value).subscribe(
+    this.isLoading = true;
+    this.provincevaccinationService.create(this.createForm.value)
+    .pipe(
+      finalize(() => this.isLoading = false))
+    .subscribe(
       response=> {
       console.log(response);
-      this.notificationService.success("Se han asignado "+this.createForm.value.received_vaccines+" vacunas a "+this.provinceVaccine[findThis].nombre);
+      this.notificationService.success("Se han asignado "+this.createForm.value.received_lots+" vacunas a "+this.provinceVaccine[findThis].nombre);
       this.router.navigate(['/province-vaccination']);
     },
     error => {

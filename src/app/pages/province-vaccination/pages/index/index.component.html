@@ -1,20 +1,20 @@
-<button nz-button nzType="primary" [routerLink]="'create'">Asignar Vacunas</button>
+<nz-form-item>
+    <button nz-button nzType="primary" [routerLink]="'create'">Asignar Vacunas</button>
+</nz-form-item>
 
 <nz-table #tabla [nzData]="provinceVaccination" [nzFrontPagination]="false">
     <thead>
         <tr>
             <th nzColumnKey="complete_name" [nzSortFn]="true">Nombre</th>
             <th nzColumnKey="received_vaccines" [nzSortFn]="true">Vacunas Recibidas</th>
-            <th nzColumnKey="assigned_vaccines" [nzSortFn]="true">Vacunas Asignadas</th>
-            <th nzColumnKey="discarded_vaccines" [nzSortFn]="true">Vacunas Descartadas</th>
+            <th nzColumnKey="details" [nzSortFn]="true">Detalle</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let data of tabla.data">
             <td>{{data.complete_name}}</td>
             <td>{{data.received_vaccines}}</td>
-            <td>{{data.assigned_vaccines}}</td>
-            <td>{{data.discarded_vaccines}}</td>
+            <td><button nz-button nzType="primary" [routerLink]="'show/'+data.iso_id">Ver</button></td>
         </tr>
     </tbody>
 </nz-table>

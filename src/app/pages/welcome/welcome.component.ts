@@ -8,8 +8,10 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class WelcomeComponent implements OnInit {
 
+  isLoading = false;
   isCollapsed = false;
   currentUser;
+  actualUser = JSON.parse(localStorage.getItem('user'));
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
@@ -18,6 +20,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   onLogout() {
+    this.isLoading = true;
     this.authService.logout();
   }
 }
