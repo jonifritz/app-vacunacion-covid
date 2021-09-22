@@ -1,21 +1,33 @@
-<nz-table #tabla [nzData]="ProvinceVaccination" [nzFrontPagination]="false">
-    <thead>
-        <tr>
-            <th nzColumnKey="name" [nzSortFn]="true">Provincia</th>
-            <th nzColumnKey="vaccine_name" [nzSortFn]="true">Vacuna</th>
-            <th nzColumnKey="description" [nzSortFn]="true">Lotes Usados</th>
-            <th nzColumnKey="admission_date" [nzSortFn]="true">Vacunas Recibidas en el lote</th>
-            <th nzColumnKey="used" [nzSortFn]="true">Enviadas</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let data of tabla.data">
-            <td>{{data.complete_name}}</td>
-            <td>{{data.id.vaccine_name}}</td>
-            <td>{{data.used_lots}}</td>
-            <td>{{data.received_lots}}</td>
-            <td>{{data.used}}</td>
-
-        </tr>
-    </tbody>
-</nz-table>
+<ng-container *ngIf="provinceVaccination">
+    <nz-page-header>
+        <nz-page-header-title>Lote #{{provinceVaccination?.id}}</nz-page-header-title>
+        <nz-page-header-subtitle>{{provinceVaccination.admission_date}}</nz-page-header-subtitle>
+        <nz-page-header-content>
+            <nz-descriptions nzSize="small" [nzColumn]="3">
+                <nz-descriptions-item nzTitle="Tipo de Vacuna" [nzSpan]="1">{{ provinceVaccination?.type_vaccine?.name}}
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Fecha de Ingreso" [nzSpan]="1">{{ provinceVaccination?.created_at | date }}
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Cantidad" [nzSpan]="1">{{ provinceVaccination.received_lots }}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Enviadas" [nzSpan]="1">{{ provinceVaccination.used }}</nz-descriptions-item>
+            </nz-descriptions>
+        </nz-page-header-content>
+    </nz-page-header>
+    <h4>Envios</h4>
+    <nz-table #tabla [nzData]="provinceVaccination.localities" [nzFrontPagination]="false">
+        <thead>
+            <tr>
+                <th nzColumnKey="name" [nzSortFn]="true">Localidad</th>
+                <th nzColumnKey="description" [nzSortFn]="true">Cantidad</th>
+                <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Envio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of tabla.data">
+                <td>{{data.complete_name}}</td>
+                <td>{{data.received_lots}}</td>
+                <td>{{data.created_at | date}}</td>
+            </tr>
+        </tbody>
+    </nz-table>
+</ng-container>

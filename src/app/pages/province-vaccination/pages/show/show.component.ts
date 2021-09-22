@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ShowComponent implements OnInit {
 
-  ProvinceVaccination: ProvinceVaccination[] = []
+  provinceVaccination: ProvinceVaccination;
   constructor(private provincevaccinationService:ProvincevaccinationService, private route: ActivatedRoute) { }
 
   selectedId: number;
@@ -21,7 +21,7 @@ export class ShowComponent implements OnInit {
     this.provincevaccinationService.show(id).subscribe(
       (response) => {
         console.log(response);
-        this.ProvinceVaccination = response;
+        this.provinceVaccination = response;
       },
       error => {
         console.log(error);

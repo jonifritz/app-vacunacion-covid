@@ -17,7 +17,13 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { NzConfig, NZ_CONFIG } from 'ng-zorro-antd/core/config';
 
+const ngZorroConfig: NzConfig = {
+  table: {
+    nzSize: 'small'
+  }
+};
 
 registerLocaleData(es);
 
@@ -38,7 +44,8 @@ registerLocaleData(es);
     NzFormModule,
     NzMessageModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: es_ES }, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [{ provide: NZ_I18N, useValue: es_ES }, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  { provide: NZ_CONFIG, useValue: ngZorroConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

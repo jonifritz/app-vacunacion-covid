@@ -10,10 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { IndexComponent } from './pages/index/index.component';
 import { CreateComponent } from './pages/create/create.component';
+import { ShowComponent } from './pages/show/show.component';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 
 
 @NgModule({
-  declarations: [IndexComponent, CreateComponent],
+  declarations: [IndexComponent, CreateComponent, ShowComponent],
   imports: [
     CommonModule,
     NzTableModule,
@@ -24,6 +27,8 @@ import { CreateComponent } from './pages/create/create.component';
     FormsModule,
     ReactiveFormsModule,
     NzSelectModule,
+    NzPageHeaderModule,
+    NzDescriptionsModule
   ]
 })
 export class MunicipalityVaccinationModule { }

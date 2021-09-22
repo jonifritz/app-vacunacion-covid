@@ -40,4 +40,9 @@ export class MunicipalityvaccinationService {
     return this.httpClient.post(`${environment.apiUri}/municipality-vaccination`, body)
   }
 
+
+  show(id): Observable<any> {
+    return this.httpClient.get<any>(`${environment.apiUri}/municipality-vaccination/`+id);
+  }
+
 }

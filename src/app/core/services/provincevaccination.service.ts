@@ -39,8 +39,8 @@ export class ProvincevaccinationService {
     return this.httpClient.post(`${environment.apiUri}/province-vaccination`, body)
   }
 
-  show(id): Observable<ProvinceVaccination[]> {
-    return this.httpClient.get<ProvinceVaccination[]>(`${environment.apiUri}/province-vaccination/`+id);
+  show(id): Observable<ProvinceVaccination> {
+    return this.httpClient.get<ProvinceVaccination>(`${environment.apiUri}/province-vaccination/`+id);
   }
 
 }

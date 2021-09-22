@@ -9,9 +9,12 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { IconsProviderModule } from 'src/app/icons-provider.module';
+import { EditComponent } from './edit/edit.component';
+import { IndexComponent } from './index/index.component';
 import { RegisterComponent } from './register/register.component';
 import { WelcomeRoutingModule } from './welcome-routing.module';
 import { WelcomeComponent } from './welcome.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 
 @NgModule({
@@ -27,8 +30,8 @@ import { WelcomeComponent } from './welcome.component';
       NzButtonModule,
       NzSelectModule,
       NzFormModule,
-      NzMessageModule, FormsModule, ReactiveFormsModule],
-  declarations: [WelcomeComponent, RegisterComponent],
+      NzMessageModule, FormsModule, ReactiveFormsModule, NzTableModule],
+  declarations: [WelcomeComponent, RegisterComponent, IndexComponent, EditComponent],
   exports: [WelcomeComponent]
 })
 export class WelcomeModule { }

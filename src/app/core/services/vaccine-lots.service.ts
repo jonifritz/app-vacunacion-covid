@@ -7,9 +7,11 @@ export interface VaccineLots {
 
   id: number;
   vaccine_id: number;
+  vaccine_name: any;
   description: string;
   admission_date: number;
   quantity: number;
+  regions: any[];
   used: number;
 
 }
@@ -31,7 +33,7 @@ export class VaccineLotsService {
     return this.httpClient.post(`${environment.apiUri}/vaccine-lots`, body)
   }
 
-  show(id): Observable<VaccineLots[]> {
-    return this.httpClient.get<VaccineLots[]>(`${environment.apiUri}/vaccine-lots/`+id);
+  show(id): Observable<VaccineLots> {
+    return this.httpClient.get<VaccineLots>(`${environment.apiUri}/vaccine-lots/`+id);
   }
 }

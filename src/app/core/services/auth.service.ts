@@ -80,4 +80,12 @@ export class AuthService {
     this.router.navigate(['/auth/login']);
   }
 
+  index():Observable<User[]> {
+    return this.httpClient.get<User[]>(`${environment.apiUri}/users`);
+  }
+
+  edit(id,body){
+    return this.httpClient.put(`${environment.apiUri}/update/`+id, body);
+  }
+
 }

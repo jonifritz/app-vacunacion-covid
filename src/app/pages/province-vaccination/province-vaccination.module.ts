@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './pages/create/create.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ShowComponent } from './pages/show/show.component';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { ShowComponent } from './pages/show/show.component';
     FormsModule,
     ReactiveFormsModule,
     NzSelectModule,
+    NzPageHeaderModule,
+    NzDescriptionsModule
   ]
 })
 export class ProvinceVaccinationModule { }

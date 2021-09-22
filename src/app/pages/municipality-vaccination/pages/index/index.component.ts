@@ -8,13 +8,13 @@ import { MunicipalityVaccination, MunicipalityvaccinationService } from 'src/app
 })
 export class IndexComponent implements OnInit {
 
-  municipalityVaccination:MunicipalityVaccination[]=[]
+  municipalityVaccination: MunicipalityVaccination[] = [];
 
-  constructor(private municipalityvaccionationService: MunicipalityvaccinationService) {}
+  constructor(private municipalityvaccionationService: MunicipalityvaccinationService) { }
 
   ngOnInit(): void {
 
-    this.municipalityvaccionationService.index().subscribe(data=>this.municipalityVaccination=data)
+    this.municipalityvaccionationService.index().subscribe(data => this.municipalityVaccination = data)
   }
 
 }

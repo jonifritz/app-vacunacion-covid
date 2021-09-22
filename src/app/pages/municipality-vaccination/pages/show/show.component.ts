@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { VaccineLots, VaccineLotsService } from 'src/app/core/services/vaccine-lots.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { MunicipalityvaccinationService } from 'src/app/core/services/municipalityvaccination.service';
 
 @Component({
   selector: 'app-show',
@@ -9,22 +9,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ShowComponent implements OnInit {
 
-  vaccineLots: VaccineLots;
-  constructor(private vaccineLotsService: VaccineLotsService, private route: ActivatedRoute) { }
+  localityLot: any;
+  constructor(private municipalityVacinationService:MunicipalityvaccinationService, private route: ActivatedRoute) { }
 
   selectedId: number;
+
 
   ngOnInit(): void {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
 
-    this.vaccineLotsService.show(id).subscribe(
+    this.municipalityVacinationService.show(id).subscribe(
       (response) => {
         console.log(response);
-        this.vaccineLots = response;
+        this.localityLot = response;
       },
       error => {
         console.log(error);
       }
     );
-  }
+    }
 }

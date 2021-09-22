@@ -1,0 +1,27 @@
+<form nz-form [formGroup]='createForm' nzLayout="vertical">
+    <nz-form-item>
+        <nz-form-label>
+            Nombre
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Nombre" formControlName='name'>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label>
+            Correo Electrónico
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Email" formControlName='email'>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzFor="new-password">
+            Contraseña
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input type=password placeholder="Password" formControlName='password' id="new-password">
+        </nz-form-control>
+    </nz-form-item>
+
+    <button nz-button nzType="primary" [nzLoading]="isLoading" (click)='onSubmit()'>Editar</button>

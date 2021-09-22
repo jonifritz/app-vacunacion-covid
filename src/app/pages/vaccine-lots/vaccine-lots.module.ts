@@ -11,7 +11,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { ShowComponent } from './pages/show/show.component';
-
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 
 @NgModule({
   declarations: [IndexComponent, CreateComponent, ShowComponent],
@@ -24,7 +25,9 @@ import { ShowComponent } from './pages/show/show.component';
     FormsModule,
     ReactiveFormsModule,
     NzSelectModule,
-    NzDatePickerModule
+    NzDatePickerModule,
+    NzPageHeaderModule,
+    NzDescriptionsModule
   ]
 })
 export class VaccineLotsModule { }

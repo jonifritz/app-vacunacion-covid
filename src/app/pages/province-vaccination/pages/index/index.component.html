@@ -5,16 +5,22 @@
 <nz-table #tabla [nzData]="provinceVaccination" [nzFrontPagination]="false">
     <thead>
         <tr>
-            <th nzColumnKey="complete_name" [nzSortFn]="true">Nombre</th>
-            <th nzColumnKey="received_vaccines" [nzSortFn]="true">Vacunas Recibidas</th>
+            <th nzColumnKey="name" [nzSortFn]="true">#</th>
+            <th nzColumnKey="admission_date" [nzSortFn]="true">Provincia</th>
+            <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Ingreso</th>
+            <th nzColumnKey="quantity" [nzSortFn]="true">Cantidad</th>
+            <th nzColumnKey="used" [nzSortFn]="true">Enviadas</th>
             <th nzColumnKey="details" [nzSortFn]="true">Detalle</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let data of tabla.data">
+            <td>{{data.id}}</td>
             <td>{{data.complete_name}}</td>
-            <td>{{data.received_vaccines}}</td>
-            <td><button nz-button nzType="primary" [routerLink]="'show/'+data.iso_id">Ver</button></td>
+            <td>{{data.created_at | date }}</td>
+            <td>{{data.received_lots}}</td>
+            <td>{{data.used}}</td>
+            <td><button nz-button nzType="primary" [routerLink]="'show/'+data.id">Ver</button></td>
         </tr>
     </tbody>
 </nz-table>
