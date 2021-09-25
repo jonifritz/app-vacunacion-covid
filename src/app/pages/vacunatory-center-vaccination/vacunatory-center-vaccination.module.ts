@@ -11,6 +11,8 @@ import { VacunatoryCenterVaccinationRoutingModule } from './vacunatory-center-va
 import { CreateComponent } from './pages/create/create.component';
 import { IndexComponent } from './pages/index/index.component';
 import { ShowComponent } from './pages/show/show.component';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { ShowComponent } from './pages/show/show.component';
     FormsModule,
     ReactiveFormsModule,
     NzSelectModule,
+    NzPageHeaderModule,
+    NzDescriptionsModule
   ]
 })
 export class VacunatoryCenterVaccinationModule { }

@@ -39,7 +39,7 @@ export class LogoutComponent implements OnInit {
     if (!this.userLoggedIn()){
         this.deleteToken();
         this.deleteUser();        
-        this.notificationService.success("Se hace cerrado sesión correctamente");
+        this.notificationService.success("Se ha cerrado sesión correctamente");
         this.router.navigate(['/']);
     }
     else

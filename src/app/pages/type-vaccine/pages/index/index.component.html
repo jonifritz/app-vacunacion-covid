@@ -1,6 +1,7 @@
-<nz-form-item>
-    <button nz-button nzType="primary" [routerLink]="'create'">Agregar Vacuna</button>
-</nz-form-item>
+<nz-page-header>
+    <nz-page-header-title>Tipos de Vacunas</nz-page-header-title>
+</nz-page-header>
+
 <nz-table #tabla [nzData]="typeVaccine" [nzFrontPagination]="false">
     <thead>
         <tr>
@@ -19,3 +20,9 @@
         </tr>
     </tbody>
 </nz-table>
+<div *ngIf="((actualUser.role_id==1) || (actualUser.role_id==2)); then superOrNac"> </div>
+<ng-template #superOrNac>
+    <nz-form-item>
+        <button nz-button nzType="primary" [routerLink]="'create'">Agregar Vacuna</button>
+    </nz-form-item>
+</ng-template>

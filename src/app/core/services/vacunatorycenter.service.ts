@@ -10,12 +10,14 @@ export interface VacunatoryCenterVaccination {
   vaccine_id: number;
   used_lots: number;
   locality_id: string;
+  locality: any;
   received_lots: number;
 }
 
 export interface Vacunatories {
   id: number;
   nombre: string;
+  
 }
 
 
@@ -35,8 +37,8 @@ export class VacunatorycenterService {
     return this.httpClient.post(`${environment.apiUri}/vacunatory-center-vaccination`, body)
   }
 
-  show(id): Observable<VacunatoryCenterVaccination[]> {
-    return this.httpClient.get<VacunatoryCenterVaccination[]>(`${environment.apiUri}/vacunatory-center-vaccination/`+id);
+  show(id): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${environment.apiUri}/vacunatory-center-vaccination/`+id);
   }
 
 

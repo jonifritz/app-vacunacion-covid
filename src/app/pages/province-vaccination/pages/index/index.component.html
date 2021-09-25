@@ -1,12 +1,13 @@
-<nz-form-item>
-    <button nz-button nzType="primary" [routerLink]="'create'">Asignar Vacunas</button>
-</nz-form-item>
+<nz-page-header>
+    <nz-page-header-title>Lotes asignados a Provincias</nz-page-header-title>
+</nz-page-header>
 
 <nz-table #tabla [nzData]="provinceVaccination" [nzFrontPagination]="false">
     <thead>
         <tr>
             <th nzColumnKey="name" [nzSortFn]="true">#</th>
             <th nzColumnKey="admission_date" [nzSortFn]="true">Provincia</th>
+            <th nzColumnKey="vaccine_name" [nzSortFn]="true">Tipo de Vacuna</th>
             <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Ingreso</th>
             <th nzColumnKey="quantity" [nzSortFn]="true">Cantidad</th>
             <th nzColumnKey="used" [nzSortFn]="true">Enviadas</th>
@@ -17,10 +18,18 @@
         <tr *ngFor="let data of tabla.data">
             <td>{{data.id}}</td>
             <td>{{data.complete_name}}</td>
+            <td>{{data?.type_vaccine?.name}}</td>
             <td>{{data.created_at | date }}</td>
             <td>{{data.received_lots}}</td>
             <td>{{data.used}}</td>
-            <td><button nz-button nzType="primary" [routerLink]="'show/'+data.id">Ver</button></td>
+            <td><button nz-button nzType="primary" nzSize='small' [routerLink]="'show/'+data.id">Ver</button></td>
         </tr>
     </tbody>
 </nz-table>
+<div *ngIf="((actualUser.role_id==1) || (actualUser.role_id==2)); then superOrNac"> </div>
+<ng-template #superOrNac>
+
+    <nz-form-item>
+        <button nz-button nzType="primary" [routerLink]="'create'">Asignar Vacunas</button>
+    </nz-form-item>
+</ng-template>

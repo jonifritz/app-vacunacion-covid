@@ -15,6 +15,8 @@ import { RegisterComponent } from './register/register.component';
 import { WelcomeRoutingModule } from './welcome-routing.module';
 import { WelcomeComponent } from './welcome.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 
 
 @NgModule({
@@ -30,7 +32,14 @@ import { NzTableModule } from 'ng-zorro-antd/table';
       NzButtonModule,
       NzSelectModule,
       NzFormModule,
-      NzMessageModule, FormsModule, ReactiveFormsModule, NzTableModule],
+      NzMessageModule, 
+      FormsModule, 
+      ReactiveFormsModule, 
+      NzTableModule, 
+      NzPageHeaderModule,
+      NzDescriptionsModule
+    ],
+
   declarations: [WelcomeComponent, RegisterComponent, IndexComponent, EditComponent],
   exports: [WelcomeComponent]
 })

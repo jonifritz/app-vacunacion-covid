@@ -1,21 +1,34 @@
-<nz-form-item>
-    <button nz-button nzType="primary" [routerLink]="'create'">Agregar Vacunas</button>
-</nz-form-item>
+<nz-page-header>
+    <nz-page-header-title>Lotes asignados a Centros Vacunatorios</nz-page-header-title>
+</nz-page-header>
+
 <nz-table #tabla [nzData]="vacunatoryCenterVaccination" [nzFrontPagination]="false">
     <thead>
         <tr>
-            <th nzColumnKey="name" [nzSortFn]="true">Nombre</th>
-            <th nzColumnKey="doses_number" [nzSortFn]="true">Tipo de Vacuna</th>
-            <th nzColumnKey="country" [nzSortFn]="true">Localidad</th>
-            <th nzColumnKey="laboratory" [nzSortFn]="true">Vacunas Recibidas</th>
+            <th nzColumnKey="name" [nzSortFn]="true">#</th>
+            <th nzColumnKey="name" [nzSortFn]="true">Centro de Vacunación</th>
+            <th nzColumnKey="type_vaccine" [nzSortFn]="true">Tipo de Vacuna</th>
+            <th nzColumnKey="locality" [nzSortFn]="true">Localidad</th>
+            <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Ingreso</th>
+            <th nzColumnKey="quantity" [nzSortFn]="true">Cantidad</th>
+            <th nzColumnKey="details" [nzSortFn]="true">Detalle</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let data of tabla.data">
+            <td>{{data.id}}</td>
             <td>{{data.name}}</td>
-            <td>{{data.typeVaccine}}</td>
-            <td>{{data.locality_id}}</td>
+            <td>{{data?.type_vaccine?.name}}</td>
+            <td>{{data?.locality?.complete_name}}</td>
+            <td>{{data.created_at | date}}</td>
             <td>{{data.received_lots}}</td>
+            <td><button nz-button nzType="primary" nzSize='small' [routerLink]="'show/'+data.id">Ver Ficha</button></td>
         </tr>
     </tbody>
 </nz-table>
+<div *ngIf="((actualUser.role_id===4)); then admin_munic"> </div>
+<ng-template #admin_munic>
+    <nz-form-item>
+        <button nz-button nzType="primary" [routerLink]="'create'">Asignar Vacunas</button>
+    </nz-form-item>
+</ng-template>

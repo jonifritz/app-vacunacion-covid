@@ -88,4 +88,7 @@ export class AuthService {
     return this.httpClient.put(`${environment.apiUri}/update/`+id, body);
   }
 
+  delete(id){
+    return this.httpClient.delete(`${environment.apiUri}/destroy/`+id);
+  }
 }

@@ -9,6 +9,7 @@ import { MunicipalityVaccination, MunicipalityvaccinationService } from 'src/app
 export class IndexComponent implements OnInit {
 
   municipalityVaccination: MunicipalityVaccination[] = [];
+  actualUser = JSON.parse(localStorage.getItem('user'));
 
   constructor(private municipalityvaccionationService: MunicipalityvaccinationService) { }
 

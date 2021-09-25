@@ -12,10 +12,11 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ShowComponent } from './pages/show/show.component';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
+import { MyVaccinesComponent } from './pages/my-vaccines/my-vaccines.component';
 
 
 @NgModule({
-  declarations: [IndexComponent, CreateComponent, ShowComponent],
+  declarations: [IndexComponent, CreateComponent, ShowComponent, MyVaccinesComponent],
   imports: [
     CommonModule,
     ProvinceVaccinationRoutingModule,

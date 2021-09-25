@@ -1,9 +1,14 @@
+<nz-page-header>
+    <nz-page-header-title>Usuarios</nz-page-header-title>
+</nz-page-header>
 <nz-table #tabla [nzData]="user" [nzFrontPagination]="false">
     <thead>
         <tr>
             <th nzColumnKey="name" [nzSortFn]="true">Nombre</th>
             <th nzColumnKey="email" [nzSortFn]="true">Correo Electrónico</th>
             <th nzColumnKey="role" [nzSortFn]="true">Rol</th>
+            <th nzColumnKey="role" [nzSortFn]="true">Edición</th>
+            <th nzColumnKey="role" [nzSortFn]="true">Remover</th>
         </tr>
     </thead>
     <tbody>
@@ -11,8 +16,8 @@
             <td>{{data.name}}</td>
             <td>{{data.email}}</td>
             <td>{{data.role_id}}</td>
-            <td><button nz-button nzType="primary" [routerLink]="'edit/'+data.id">Editar</button></td>
-            <td><button nz-button nzType="primary" [routerLink]="'delete/'+data.id">Eliminar</button></td>
+            <td><button nz-button nzType="primary" nzSize='small' [routerLink]="'edit/'+data.id">Editar</button></td>
+            <td><button nz-button (click)="deleteUser(data.id)" nzType="primary" nzDanger="danger" nzSize='small' >Eliminar</button></td>
             
         </tr>
     </tbody>

@@ -50,6 +50,7 @@ export class CreateComponent implements OnInit {
     const existsAlready = (element) => element.id == this.createForm.value.id; 
     const findThis = this.municipalityVaccine.findIndex(existsAlready)
     let nombre =  this.municipalityVaccine[findThis].nombre
+    console.log('nombre es: '+nombre)
     this.createForm.value.complete_name = nombre
 
     this.createForm.value.province_id = this.authService.currentUserValue.region_id
@@ -61,7 +62,7 @@ export class CreateComponent implements OnInit {
       response=> {
       console.log(response);
       this.notificationService.success("Se han asignado "+this.createForm.value.received_lots+" vacunas a "+this.createForm.value.complete_name);
-      this.router.navigate(['/province-vaccination']);
+      this.router.navigate(['/dashboard/municipality-vaccination']);
     },
     error => {
       this.notificationService.error("Ha ocurrido un error. Por favor intente nuevamente");

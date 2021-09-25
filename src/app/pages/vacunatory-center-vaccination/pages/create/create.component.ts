@@ -43,7 +43,7 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.typevaccineService.index().subscribe(data => this.typeVaccine = data)
+    //this.typevaccineService.index().subscribe(data => this.typeVaccine = data)
   }
 
   onSubmit() {

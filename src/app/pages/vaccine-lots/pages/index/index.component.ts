@@ -9,6 +9,8 @@ import { VaccineLots, VaccineLotsService } from 'src/app/core/services/vaccine-l
 export class IndexComponent implements OnInit {
 
   vaccineLots: VaccineLots[] = []
+  actualUser = JSON.parse(localStorage.getItem('user'));
+  
   constructor(private vaccineLotsService: VaccineLotsService) { }
 
   ngOnInit(): void {

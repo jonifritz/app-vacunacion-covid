@@ -1,12 +1,10 @@
 <nz-page-header>
-    <nz-page-header-title>Lotes asignados a Municipios</nz-page-header-title>
+    <nz-page-header-title>Localidad: {{ciudad}}</nz-page-header-title>
 </nz-page-header>
-
 <nz-table #tabla [nzData]="municipalityVaccination" [nzFrontPagination]="false">
     <thead>
         <tr>
             <th nzColumnKey="name" [nzSortFn]="true">#</th>
-            <th nzColumnKey="admission_date" [nzSortFn]="true">Localidad</th>
             <th nzColumnKey="type_vaccine" [nzSortFn]="true">Tipo de Vacuna</th>
             <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Ingreso</th>
             <th nzColumnKey="quantity" [nzSortFn]="true">Cantidad</th>
@@ -17,18 +15,11 @@
     <tbody>
         <tr *ngFor="let data of tabla.data">
             <td>{{data.id}}</td>
-            <td>{{data.complete_name}}</td>
             <td>{{data?.type_vaccine?.name}}</td>
             <td>{{data.created_at | date }}</td>
             <td>{{data.received_lots}}</td>
             <td>{{data.used}}</td>
-            <td><button nz-button nzType="primary" nzSize='small' [routerLink]="'show/'+data.id">Ver</button></td>
+            <td><button nz-button nzType="primary" [routerLink]="'show/'+data.id">Ver</button></td>
         </tr>
     </tbody>
 </nz-table>
-<div *ngIf="((actualUser.role_id===3)) ; then admin_prov"> </div>
-<ng-template #admin_prov>
-    <nz-form-item>
-        <button nz-button nzType="primary" [routerLink]="'create'">Asignar Vacunas</button>
-    </nz-form-item>
-</ng-template>

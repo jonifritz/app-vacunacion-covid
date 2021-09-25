@@ -33,7 +33,7 @@ onSubmit(){
     (response) => {
       console.log(response);
       this.notificationService.success("La vacuna "+this.createForm.value.name+" se agregó correctamente");
-      this.router.navigate(['/type-vaccine']);
+      this.router.navigate(['/dashboard/type-vaccine']);
     },
     error => {
       this.notificationService.error("Ocurrió un error al ingresar la vacuna. Por favor intente nuevamente");

@@ -37,7 +37,7 @@ onSubmit() {
       this.notificationService.success(
         `Se editó el usuario ${this.createForm.value.name} correctamente`
       )
-      this.router.navigate(['/users'])
+      this.router.navigate(['/dashboard/users/'])
     },
     error => {
       this.notificationService.error(`Error: ${error}`)

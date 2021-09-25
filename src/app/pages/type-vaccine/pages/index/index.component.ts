@@ -9,6 +9,8 @@ import { TypeVaccine, TypevaccineService } from 'src/app/core/services/typevacci
 export class IndexComponent implements OnInit {
 
   typeVaccine:TypeVaccine[]=[]
+  actualUser = JSON.parse(localStorage.getItem('user'));
+  
   constructor(private typevaccineService:TypevaccineService) { 
   }
 

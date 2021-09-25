@@ -1,3 +1,6 @@
+<nz-page-header>
+    <nz-page-header-title>Nuevo Usuario</nz-page-header-title>
+</nz-page-header>
 <form nz-form [formGroup]='createForm' nzLayout="vertical">
     <nz-form-item>
         <nz-form-label>
@@ -28,7 +31,7 @@
     <ng-template #superAdmin>
         <nz-form-item>
             <nz-form-label>
-                Rol = Nacional
+                Rol: Nacional
             </nz-form-label>
         </nz-form-item>
     </ng-template>
@@ -55,7 +58,7 @@
     <ng-template #adminProvincial newUserRol=4>
         <nz-form-item>
             <nz-form-label>
-                Rol = Municipal
+                Rol: Municipal
             </nz-form-label>
         </nz-form-item>
         <nz-form-item>
@@ -73,7 +76,7 @@
     <ng-template #adminMunicipal newUserRol=5>
         <nz-form-item>
             <nz-form-label>
-                Rol = Centro Vacunatorio
+                Rol: Centro Vacunatorio
             </nz-form-label>
         </nz-form-item>
         <nz-form-item>
@@ -81,8 +84,8 @@
                 Centro de Vacunación
             </nz-form-label>
             <nz-select name="Centro de Vacunación" formControlName='vacunatory_center_id'>
-                <nz-option *ngFor="let province of provinceVaccine" [nzValue]="province.id" [nzLabel]="province.nombre">
-                </nz-option>
+                <nz-option *ngFor="let vacunatory of vacunatories" [nzValue]="vacunatory.id"
+                    [nzLabel]="vacunatory.nombre"></nz-option>
             </nz-select>
         </nz-form-item>
     </ng-template>

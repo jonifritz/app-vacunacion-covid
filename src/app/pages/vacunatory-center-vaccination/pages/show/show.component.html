@@ -1,1 +1,16 @@
-<p>show works!</p>
+<ng-container *ngIf="vacunatoryCenterLot">
+    <nz-page-header>
+        <nz-page-header-title>Lote #{{vacunatoryCenterLot?.id}}</nz-page-header-title>
+        <nz-page-header-subtitle>{{vacunatoryCenterLot.admission_date}}</nz-page-header-subtitle>
+        <nz-page-header-content>
+            <nz-descriptions nzSize="small" [nzColumn]="3">
+                <nz-descriptions-item nzTitle="Tipo de Vacuna" [nzSpan]="1">{{ vacunatoryCenterLot?.type_vaccine?.name}}
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Fecha de Ingreso" [nzSpan]="1">{{ vacunatoryCenterLot?.created_at | date }}
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Cantidad" [nzSpan]="1">{{ vacunatoryCenterLot.received_lots }}</nz-descriptions-item>
+                <nz-descriptions-item nzTitle="Enviadas" [nzSpan]="1">{{ vacunatoryCenterLot?.used }}</nz-descriptions-item>
+            </nz-descriptions>
+        </nz-page-header-content>
+    </nz-page-header>  
+</ng-container>

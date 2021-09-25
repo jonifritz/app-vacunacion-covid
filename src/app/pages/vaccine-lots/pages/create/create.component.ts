@@ -40,7 +40,7 @@ export class CreateComponent implements OnInit {
           this.notificationService.success(
             `Se han agregado correctamente ${this.createForm.value.quantity} vacunas al stock`
           )
-          this.router.navigate(['/vaccine-lots'])
+          this.router.navigate(['/dashboard/vaccine-lots'])
         },
         error => {
           this.notificationService.error(`Error: ${error}`)

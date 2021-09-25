@@ -5,10 +5,14 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 
 export interface ProvinceVaccination {
+  id: number;
+  vaccine_id: number;
+  used_lots: number;
   nombre: string;
-  received_vaccines: string;
-  assigned_vaccines: string;
-  discarded_vaccines: string;
+  vaccine_name: any;
+  iso_id: number;
+  received_lots: number;
+  used: number; 
 
 }
 
@@ -43,4 +47,15 @@ export class ProvincevaccinationService {
     return this.httpClient.get<ProvinceVaccination>(`${environment.apiUri}/province-vaccination/`+id);
   }
 
+  showProvinceVaccines(): Observable<ProvinceVaccination[]>{
+    return this.httpClient.get<ProvinceVaccination[]>(`${environment.apiUri}/province-vaccination/myVaccines`);
+  }
+
+  showStats(vaccine_id): Observable<ProvinceVaccination> {
+    return this.httpClient.get<ProvinceVaccination>(`${environment.apiUri}/province-vaccination/stats/`+vaccine_id).pipe(map(res => res));
+  }
+
+  showAllStats(): Observable<ProvinceVaccination> {
+    return this.httpClient.get<ProvinceVaccination>(`${environment.apiUri}/province-vaccination/statsall`).pipe(map(res => res));
+  }
 }

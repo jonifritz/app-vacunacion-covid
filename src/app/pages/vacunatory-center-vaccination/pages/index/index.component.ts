@@ -9,10 +9,17 @@ import { VacunatoryCenterVaccination, VacunatorycenterService } from 'src/app/co
 export class IndexComponent implements OnInit {
 
   vacunatoryCenterVaccination:VacunatoryCenterVaccination[]=[]
+  actualUser = JSON.parse(localStorage.getItem('user'));
   constructor(private VacunatorycenterService: VacunatorycenterService) { }
 
   ngOnInit(): void {
-    this.VacunatorycenterService.index().subscribe(data=>this.vacunatoryCenterVaccination=data)
+    this.VacunatorycenterService.index().subscribe((response) => {
+      console.log(response);
+      this.vacunatoryCenterVaccination = response;
+    },
+    error => {
+      console.log(error);
+    }
+    );
   }
-
 }

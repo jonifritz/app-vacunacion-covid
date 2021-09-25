@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { VacunatoryCenterVaccination, VacunatorycenterService } from 'src/app/core/services/vacunatorycenter.service';
 
 @Component({
   selector: 'app-show',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowComponent implements OnInit {
 
-  constructor() { }
+  vacunatoryCenterLot:any;
+  constructor(private VacunatorycenterService: VacunatorycenterService,
+    private route: ActivatedRoute) { }
+
+    selectedId: number;
 
   ngOnInit(): void {
-  }
+    let id = parseInt(this.route.snapshot.paramMap.get('id'));
 
-}
+    this.VacunatorycenterService.show(id).subscribe(
+      (response) => {
+        console.log(response);
+        this.vacunatoryCenterLot = response;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    }
+  }
