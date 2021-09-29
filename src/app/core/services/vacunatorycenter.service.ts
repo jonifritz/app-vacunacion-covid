@@ -28,6 +28,15 @@ export class VacunatorycenterService {
 
   constructor(private httpClient: HttpClient) { }
 
+  vacunatoryCenter(): Observable<any[]> {
+    return this.httpClient.get<any[]>(`${environment.apiUri}/vacunatory-center`);
+  }
+
+  vacunatoryCenterEdit(id, body): Observable<any>{
+    return this.httpClient.put(`${environment.apiUri}/edit/`+id, body);
+  }
+
+
   index(): Observable<VacunatoryCenterVaccination[]> {
     return this.httpClient.get<VacunatoryCenterVaccination[]>(`${environment.apiUri}/vacunatory-center-vaccination`);
     

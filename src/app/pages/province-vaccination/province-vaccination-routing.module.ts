@@ -9,8 +9,8 @@ const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'create', component: CreateComponent },
   { path: 'show/:id', component: ShowComponent },
-  { path: 'myVaccines', component: MyVaccinesComponent },
-  { path: 'myVaccines/show/:id', component: ShowComponent },
+  { path: 'my-vaccines', component: MyVaccinesComponent },
+  { path: 'my-vaccines/show/:id', component: ShowComponent },
 ];
 
 @NgModule({

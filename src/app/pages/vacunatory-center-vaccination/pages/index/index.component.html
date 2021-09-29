@@ -8,7 +8,6 @@
             <th nzColumnKey="name" [nzSortFn]="true">#</th>
             <th nzColumnKey="name" [nzSortFn]="true">Centro de Vacunación</th>
             <th nzColumnKey="type_vaccine" [nzSortFn]="true">Tipo de Vacuna</th>
-            <th nzColumnKey="locality" [nzSortFn]="true">Localidad</th>
             <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Ingreso</th>
             <th nzColumnKey="quantity" [nzSortFn]="true">Cantidad</th>
             <th nzColumnKey="details" [nzSortFn]="true">Detalle</th>
@@ -17,9 +16,8 @@
     <tbody>
         <tr *ngFor="let data of tabla.data">
             <td>{{data.id}}</td>
-            <td>{{data.name}}</td>
+            <td>{{data.vacunatory_center.name}}</td>
             <td>{{data?.type_vaccine?.name}}</td>
-            <td>{{data?.locality?.complete_name}}</td>
             <td>{{data.created_at | date}}</td>
             <td>{{data.received_lots}}</td>
             <td><button nz-button nzType="primary" nzSize='small' [routerLink]="'show/'+data.id">Ver Ficha</button></td>

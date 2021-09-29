@@ -1,0 +1,23 @@
+<nz-page-header>
+    <nz-page-header-title>Centros de Vacunación</nz-page-header-title>
+</nz-page-header>
+<nz-table #tabla [nzData]="vacunatories" [nzFrontPagination]="false">
+    <thead>
+        <tr>
+            <th nzColumnKey="name" [nzSortFn]="true">Nombre</th>
+            <th nzColumnKey="email" [nzSortFn]="true">Localidad</th>
+            <th nzColumnKey="role" [nzSortFn]="true">Edición</th>
+            <th nzColumnKey="role" [nzSortFn]="true">Remover</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of tabla.data">
+            <td>{{data.name}}</td>
+            <td>{{data.locality_id}}</td>
+            <td><button nz-button nzType="primary" nzSize='small' [routerLink]="'edit/'+data.id">Editar</button></td>
+            <td><button nz-button (click)="deleteUser(data.id)" nzType="primary" nzDanger="danger" nzSize='small' >Eliminar</button></td>
+            
+        </tr>
+    </tbody>
+</nz-table>
+

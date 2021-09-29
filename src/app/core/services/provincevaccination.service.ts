@@ -48,7 +48,7 @@ export class ProvincevaccinationService {
   }
 
   showProvinceVaccines(): Observable<ProvinceVaccination[]>{
-    return this.httpClient.get<ProvinceVaccination[]>(`${environment.apiUri}/province-vaccination/myVaccines`);
+    return this.httpClient.get<ProvinceVaccination[]>(`${environment.apiUri}/province-vaccination/my-vaccines`);
   }
 
   showStats(vaccine_id): Observable<ProvinceVaccination> {
@@ -57,5 +57,18 @@ export class ProvincevaccinationService {
 
   showAllStats(): Observable<ProvinceVaccination> {
     return this.httpClient.get<ProvinceVaccination>(`${environment.apiUri}/province-vaccination/statsall`).pipe(map(res => res));
+  }
+
+  statsPerProvince(vaccine_id): Observable<ProvinceVaccination> {
+    return this.httpClient.get<ProvinceVaccination>(`${environment.apiUri}/province-vaccination/typeVaccineByProvinces/`+vaccine_id).pipe(map(res => res));
+  }
+
+  typesVaccinesByProvinceStats(iso_id): Observable<ProvinceVaccination> {
+    return this.httpClient.get<ProvinceVaccination>(`${environment.apiUri}/province-vaccination/typesVaccinesByProvince/`+iso_id).pipe(map(res => res));
+  }
+
+  //lo usa PIE CHART
+  allTypesVaccinesProvinces(): Observable<ProvinceVaccination> {
+    return this.httpClient.get<ProvinceVaccination>(`${environment.apiUri}/province-vaccination/alltypesVaccinesProvinces/`).pipe(map(res => res));
   }
 }

@@ -1,11 +1,108 @@
-<div style="display: block;">
-  <canvas baseChart width="400" height="400"
-    [data]="lineChartData"
-    [labels]="lineChartLabels"
-    [options]="lineChartOptions"
-    [colors]="lineChartColors"
-    [legend]="lineChartLegend"
-    [chartType]="lineChartType"
-    [plugins]="lineChartPlugins">
-  </canvas>
+<nz-page-header>
+  <nz-page-header-title>Información Gráfica</nz-page-header-title>
+</nz-page-header>
+
+<nz-form-item>
+  <nz-form-label>
+    Seleccione la información que desea visualizar:
+  </nz-form-label>
+  <nz-select name="Nombre de la vacuna" [(ngModel)]="selected_chart_info">
+    <nz-option *ngFor="let chart of lista" [nzValue]="chart" [nzLabel]="chart"></nz-option>
+  </nz-select>
+</nz-form-item>
+
+<div *ngIf="selected_chart_info=='Vacunas por tipo en provincias por fecha'; then chart_1"> </div>
+<ng-template #chart_1 nzLayout="vertical">
+
+  <nz-form-item>
+    <nz-form-label>
+      Tipo de Vacuna
+    </nz-form-label>
+    <nz-select name="Tipo de Vacuna" [(ngModel)]="selected_vaccine_type" nzLayout="vertical">
+      <nz-option *ngFor="let vacuna of typeVaccine" [nzValue]="vacuna.id" [nzLabel]="vacuna.name"></nz-option>
+    </nz-select>
+  </nz-form-item>
+  <nz-form-item>
+    <button nz-button nzType="primary" (click)="TypeVaccineOnProvinceByDateStats(selected_vaccine_type)">Ver</button>
+  </nz-form-item>
+</ng-template>
+
+<div *ngIf="selected_chart_info=='Total vacunas por tipo en provincias por fecha (todas)'; then chart_2"> </div>
+<ng-template #chart_2>
+  <td><button nz-button (click)="AllTypeVaccineOnProvinceByDateStats()" nzType="primary">Todas</button>
+  </td>
+</ng-template>
+
+<div *ngIf="selected_chart_info=='Vacunas por tipo en municipios por fecha'; then chart_3"> </div>
+<ng-template #chart_3 nzLayout="vertical">
+
+  <nz-form-item>
+    <nz-form-label>
+      Tipo de Vacuna
+    </nz-form-label>
+    <nz-select name="Tipo de Vacuna" [(ngModel)]="selected_vaccine_type" nzLayout="vertical">
+      <nz-option *ngFor="let vacuna of typeVaccine" [nzValue]="vacuna.id" [nzLabel]="vacuna.name"></nz-option>
+    </nz-select>
+  </nz-form-item>
+  <nz-form-item>
+    <button nz-button nzType="primary" (click)="TypeVaccineOnMunicipalityByDateStats(selected_vaccine_type)">Ver</button>
+  </nz-form-item>
+</ng-template>
+
+<!---
+<div *ngIf="selected_chart_info=='Total vacunas por tipo en municipios por fecha (todas)'; then chart_4"> </div>
+<ng-template #chart_4>
+  <td><button nz-button (click)="getAllVaccinesMunicipalitiesStates()" nzType="primary">Todas</button>
+  </td>
+</ng-template>
+--> 
+
+<div *ngIf="selected_chart_info=='Tipo de vacuna por provincias'; then chart_5"> </div>
+<ng-template #chart_5 nzLayout="vertical">
+
+  <nz-form-item>
+    <nz-form-label>
+      Tipo de Vacuna
+    </nz-form-label>
+    <nz-select name="Tipo de Vacuna" [(ngModel)]="selected_vaccine_type" nzLayout="vertical">
+      <nz-option *ngFor="let vacuna of typeVaccine" [nzValue]="vacuna.id" [nzLabel]="vacuna.name"></nz-option>
+    </nz-select>
+  </nz-form-item>
+  <nz-form-item>
+    <button nz-button nzType="primary" (click)="TypeVaccineOnProvinceByProvinceStats(selected_vaccine_type)">Ver</button>
+  </nz-form-item>
+</ng-template>
+
+<div *ngIf="selected_chart_info=='Tipos de vacunas por provincias'; then chart_6"> </div>
+<ng-template #chart_6 nzLayout="vertical">
+
+  <nz-form-item>
+    <nz-form-label>
+      Provincia
+    </nz-form-label>
+    <nz-select name="Nombre de la Provincia" [(ngModel)]="selected_province" nzLayout="vertical">
+      <nz-option *ngFor="let province of provinceVaccine" [nzValue]="province.id" [nzLabel]="province.nombre"></nz-option>
+    </nz-select>
+  </nz-form-item>
+  <nz-form-item>
+    <button nz-button nzType="primary" (click)="TypeVaccineByProvinceStats(selected_province)">Ver</button>
+  </nz-form-item>
+</ng-template>
+
+
+
+<div>
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+        [datasets]="radarChartData"
+        [options]="radarChartOptions"
+        [labels]="radarChartLabels"
+        [chartType]="radarChartType">
+        [plugins]="barChartPlugins" 
+    [legend]="barChartLegend" 
+    [colors]="barChartColors" 
+      </canvas>
+    </div>
+  </div>
 </div>

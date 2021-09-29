@@ -3,8 +3,9 @@
         <nz-form-label>
             Centro de Vacunación
         </nz-form-label>
-        <nz-select name="Centro Vacunatorio" formControlName='name'>
-            <nz-option *ngFor="let vacunatory of vacunatories" [nzValue]="vacunatory.nombre" [nzLabel]="vacunatory.nombre"></nz-option>
+        <nz-select name="Centro Vacunatorio" formControlName='vacunatory_center_id'>
+            <nz-option *ngFor="let vacunatory of vacunatories" [nzValue]="vacunatory.id"
+                [nzLabel]="vacunatory.name"></nz-option>
         </nz-select>
     </nz-form-item>
     <nz-form-item>

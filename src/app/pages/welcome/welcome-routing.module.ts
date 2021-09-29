@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { WelcomeComponent } from './welcome.component';
 import { IndexComponent } from './index/index.component';
 import { EditComponent } from './edit/edit.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -14,9 +15,11 @@ const routes: Routes = [
       { path: 'province-vaccination', loadChildren: () => import('../province-vaccination/province-vaccination.module').then(m => m.ProvinceVaccinationModule) },
       { path: 'municipality-vaccination', loadChildren: () => import('../municipality-vaccination/municipality-vaccination.module').then(m => m.MunicipalityVaccinationModule) },
       { path: 'vacunatory-center-vaccination', loadChildren: () => import('../vacunatory-center-vaccination/vacunatory-center-vaccination.module').then(m => m.VacunatoryCenterVaccinationModule) },
+      { path: 'vacunatory-center', loadChildren: () => import('../vacunatory-center/vacunatory-center.module').then(m => m.VacunatoryCenterModule) },
       { path: 'register', component: RegisterComponent },
       { path: 'users', component: IndexComponent },
       { path: 'users/edit/:id', component: EditComponent },
+      { path: 'about', component: AboutComponent },
       { path: 'stats', loadChildren: () => import('../stats/stats.module').then(m => m.StatsModule) },
     ]
   },

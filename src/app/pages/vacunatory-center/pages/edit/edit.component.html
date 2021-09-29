@@ -1,0 +1,11 @@
+<form nz-form [formGroup]='createForm' nzLayout="vertical">
+    <nz-form-item>
+        <nz-form-label>
+            Nombre
+        </nz-form-label>
+        <nz-form-control>
+            <input nz-input placeholder="Nombre" formControlName='name'>
+        </nz-form-control>
+    </nz-form-item>
+
+    <button nz-button nzType="primary" [nzLoading]="isLoading" (click)='onSubmit()'>Guardar cambios</button>

@@ -50,7 +50,19 @@ export class MunicipalityvaccinationService {
   }
 
   showMunicipalitiesVaccines(): Observable<MunicipalityVaccination[]>{
-    return this.httpClient.get<MunicipalityVaccination[]>(`${environment.apiUri}/municipality-vaccination/myVaccines`);
+    return this.httpClient.get<MunicipalityVaccination[]>(`${environment.apiUri}/municipality-vaccination/my-vaccines`);
+  }
+
+  showStats(vaccine_id): Observable<MunicipalityVaccination> {
+    return this.httpClient.get<MunicipalityVaccination>(`${environment.apiUri}/municipality-vaccination/stats/`+vaccine_id).pipe(map(res => res));
+  }
+
+  showAllStats(): Observable<MunicipalityVaccination> {
+    return this.httpClient.get<MunicipalityVaccination>(`${environment.apiUri}/municipality-vaccination/statsall`).pipe(map(res => res));
+  }
+
+  allTypesVaccinesMunicipalities(): Observable<MunicipalityVaccination> {
+    return this.httpClient.get<MunicipalityVaccination>(`${environment.apiUri}/municipality-vaccination/alltypesVaccinesMunicipalities/`).pipe(map(res => res));
   }
 
 }
