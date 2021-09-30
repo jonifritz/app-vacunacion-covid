@@ -31,9 +31,7 @@ export class BarChartComponent implements OnInit {
   selected_province: number;
 
   lista: string[] = ["Vacunas por tipo en provincias por fecha",
-    "Total vacunas por tipo en provincias por fecha (todas)",
     "Vacunas por tipo en municipios por fecha",
-    "Total vacunas por tipo en municipios por fecha (todas)",
     "Tipo de vacuna por provincias",
     "Tipos de vacunas por provincias"
   ];

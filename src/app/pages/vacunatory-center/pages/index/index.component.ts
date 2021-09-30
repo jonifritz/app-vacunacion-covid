@@ -13,7 +13,7 @@ export class IndexComponent implements OnInit {
   vacunatories: Vacunatories[]=[]
 
   actualUser = JSON.parse(localStorage.getItem('user'));
-  
+  localidad = this.actualUser.locality.nombre;
 
   constructor(private vacunatorycenterService: VacunatorycenterService, private router: Router,
     private notificationService: NotificationService) { }

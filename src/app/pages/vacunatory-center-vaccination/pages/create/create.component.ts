@@ -59,7 +59,7 @@ export class CreateComponent implements OnInit {
         finalize(() => this.isLoading = false)).subscribe(
           response => {
             console.log(response);
-            this.notificationService.success("Se han asignado " + this.createForm.value.received_lots + " vacunas a " + this.createForm.value.name);
+            this.notificationService.success("Se han asignado " + this.createForm.value.received_lots + " vacunas al centro de vacunación");
             this.router.navigate(['/dashboard/vacunatory-center-vaccination']);
           },
           error => {
