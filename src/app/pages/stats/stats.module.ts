@@ -16,6 +16,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
     NzSelectModule,
     NzDatePickerModule,
     NzPageHeaderModule,
-    NzDescriptionsModule
+    NzDescriptionsModule,
+    NzMenuModule
   ]
 })
 export class StatsModule { }

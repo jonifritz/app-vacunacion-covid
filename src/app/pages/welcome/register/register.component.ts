@@ -20,20 +20,19 @@ export class RegisterComponent implements OnInit {
   user: User[] = [];
   provinceVaccine: ProvinceVaccination[] = []
   municipalityVaccine: MunicipalityVaccination[] = []
+  vacunatories: Vacunatories [] = []
 
   actualUser = JSON.parse(localStorage.getItem('user'));
   provinceUser = this.actualUser.region_id;
   newUserRol = this.actualUser.role_id + 1;
   name_rol = this.newUserRol.name;
 
-  vacunatories: Vacunatories[] = [
-    { id: 1, nombre: 'Centro de Vacunacion 1' }, { id: 2, nombre: 'Centro de Vacunacion 2' },
-    { id: 3, nombre: 'Centro de Vacunacion 3' }, { id: 4, nombre: 'Centro de Vacunacion 4' },
-    { id: 5, nombre: 'Centro de Vacunacion 5' },
-  ]
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private notificationService: NotificationService, private router: Router,
-    private provincevaccinationService: ProvincevaccinationService, private municipalityvaccinationService: MunicipalityvaccinationService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, 
+    private notificationService: NotificationService, 
+    private router: Router, private provincevaccinationService: ProvincevaccinationService, 
+    private municipalityvaccinationService: MunicipalityvaccinationService, 
+    private vacunatorycenterService: VacunatorycenterService) {
     this.createForm = this.formBuilder.group({
       name: [null],
       email: [null],
@@ -49,6 +48,12 @@ export class RegisterComponent implements OnInit {
     this.provincevaccinationService.getProvinciesFromApi().subscribe(data => this.provinceVaccine = data);
     this.municipalityvaccinationService.getMunicipalitiesFromApi(this.provinceUser)
       .subscribe(data => this.municipalityVaccine = data);
+    
+    this.vacunatorycenterService.vacunatoryCenter().subscribe(data3 =>{ 
+      console.log("vacunatorios: "+data3);
+      this.vacunatories = data3;
+      console.log(this.vacunatories);
+      });
 
   }
 
@@ -67,7 +72,6 @@ export class RegisterComponent implements OnInit {
         console.log(error);
       }
     );
-
   }
 
   setRol() {

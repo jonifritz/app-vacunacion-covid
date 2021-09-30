@@ -12,6 +12,9 @@ export class IndexComponent implements OnInit {
 
   vacunatories: Vacunatories[]=[]
 
+  actualUser = JSON.parse(localStorage.getItem('user'));
+  
+
   constructor(private vacunatorycenterService: VacunatorycenterService, private router: Router,
     private notificationService: NotificationService) { }
 

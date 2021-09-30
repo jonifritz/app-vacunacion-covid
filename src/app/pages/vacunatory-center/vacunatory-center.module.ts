@@ -14,10 +14,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
+import { MyVacunatoriesCentersComponent } from './pages/my-vacunatories-centers/my-vacunatories-centers.component';
 
 
 @NgModule({
-  declarations: [CreateComponent, IndexComponent, EditComponent, ShowComponent],
+  declarations: [CreateComponent, IndexComponent, EditComponent, ShowComponent, MyVacunatoriesCentersComponent],
   imports: [
     CommonModule,
     VacunatoryCenterRoutingModule,

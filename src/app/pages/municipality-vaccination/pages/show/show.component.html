@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let data of tabla.data">
-                <td>{{data.name}}</td>
+                <td>{{data?.vacunatory_center?.name}}</td>
                 <td>{{data.received_lots}}</td>
                 <td>{{data.created_at | date}}</td>
             </tr>

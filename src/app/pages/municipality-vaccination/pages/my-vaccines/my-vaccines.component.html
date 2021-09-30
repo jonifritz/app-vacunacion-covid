@@ -19,7 +19,7 @@
             <td>{{data.created_at | date }}</td>
             <td>{{data.received_lots}}</td>
             <td>{{data.used}}</td>
-            <td><button nz-button nzType="primary" [routerLink]="'show/'+data.id">Ver</button></td>
+            <td><button nz-button nzType="primary" nzSize='small' [routerLink]="'show/'+data.id">Ver</button></td>
         </tr>
     </tbody>
 </nz-table>

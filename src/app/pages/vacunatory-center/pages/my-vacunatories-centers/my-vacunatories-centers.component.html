@@ -1,0 +1,23 @@
+<nz-page-header>
+    <nz-page-header-title>Localidad: {{localidad}}</nz-page-header-title>
+</nz-page-header>
+<nz-table #tabla [nzData]="vacunatories" [nzFrontPagination]="false">
+    <thead>
+        <tr>
+            <th nzColumnKey="name" [nzSortFn]="true">#</th>
+            <th nzColumnKey="vaccine_name" [nzSortFn]="true">Nombre</th>
+            <th nzColumnKey="admission_date" [nzSortFn]="true">Fecha de Creación</th>
+            <th nzColumnKey="used" [nzSortFn]="true">Localidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of tabla.data">
+            <td>{{data.id}}</td>
+            <td>{{data?.name}}</td>
+            <td>{{data.created_at | date }}</td>
+            <td>{{data.locality_id}}</td>
+            
+            
+        </tr>
+    </tbody>
+</nz-table>

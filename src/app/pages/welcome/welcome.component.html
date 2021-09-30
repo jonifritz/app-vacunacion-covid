@@ -5,7 +5,7 @@
             <a href="/" target="_self">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6vWzyyQJqiAmM-EGhPE86mL1f640JAnHs_hQyTUf9ezlCvZa1KwfyuLQfUtSvt0S_s8I&usqp=CAU"
                     alt="logo">
-                <h1 style="font-weight: 400; font-size: 1rem;">Gestión de Vacunas</h1>
+                <h1 style="font-weight: 500; font-size: 1rem;">Gestión de Vacunas</h1>
                 <br>
             </a>
         </div>
@@ -18,6 +18,45 @@
 
         <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
 
+
+
+            <li nz-submenu nzTitle="Lotes de Vacunas"><i nz-icon></i>
+                <ul>
+                    <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/vaccine-lots"><i nz-icon>
+
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="flag"
+                                    class="svg-inline--fa fa-flag fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M336.174 80c-49.132 0-93.305-32-161.913-32-31.301 0-58.303 6.482-80.721 15.168a48.04 48.04 0 0 0 2.142-20.727C93.067 19.575 74.167 1.594 51.201.104 23.242-1.71 0 20.431 0 48c0 17.764 9.657 33.262 24 41.562V496c0 8.837 7.163 16 16 16h16c8.837 0 16-7.163 16-16v-83.443C109.869 395.28 143.259 384 199.826 384c49.132 0 93.305 32 161.913 32 58.479 0 101.972-22.617 128.548-39.981C503.846 367.161 512 352.051 512 335.855V95.937c0-34.459-35.264-57.768-66.904-44.117C409.193 67.309 371.641 80 336.174 80zM464 336c-21.783 15.412-60.824 32-102.261 32-59.945 0-102.002-32-161.913-32-43.361 0-96.379 9.403-127.826 24V128c21.784-15.412 60.824-32 102.261-32 59.945 0 102.002 32 161.913 32 43.271 0 96.32-17.366 127.826-32v240z">
+                                    </path>
+                                </svg></i>Nacionales</a></li>
+                    <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/province-vaccination"><i nz-icon>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sitemap"
+                                    class="svg-inline--fa fa-sitemap fa-w-20" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                    <path fill="currentColor"
+                                        d="M128 352H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32zm-24-80h192v48h48v-48h192v48h48v-57.59c0-21.17-17.23-38.41-38.41-38.41H344v-64h40c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H256c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h40v64H94.41C73.23 224 56 241.23 56 262.41V320h48v-48zm264 80h-96c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32zm240 0h-96c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z">
+                                    </path>
+                                </svg></i>Provinciales</a></li>
+                    <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/municipality-vaccination"><i nz-icon>
+                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="building"
+                                    class="svg-inline--fa fa-building fa-w-14" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path fill="currentColor"
+                                        d="M128 148v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12zm140 12h40c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12zm-128 96h40c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12zm128 0h40c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12zm-76 84v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm76 12h40c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12zm180 124v36H0v-36c0-6.6 5.4-12 12-12h19.5V24c0-13.3 10.7-24 24-24h337c13.3 0 24 10.7 24 24v440H436c6.6 0 12 5.4 12 12zM79.5 463H192v-67c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v67h112.5V49L80 48l-.5 415z">
+                                    </path>
+                                </svg></i>Municipales</a></li>
+                    <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/vacunatory-center-vaccination"><i nz-icon>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clinic-medical"
+                                    class="svg-inline--fa fa-clinic-medical fa-w-18" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                    <path fill="currentColor"
+                                        d="M288 115L69.47 307.71c-1.62 1.46-3.69 2.14-5.47 3.35V496a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V311.1c-1.7-1.16-3.72-1.82-5.26-3.2zm96 261a8 8 0 0 1-8 8h-56v56a8 8 0 0 1-8 8h-48a8 8 0 0 1-8-8v-56h-56a8 8 0 0 1-8-8v-48a8 8 0 0 1 8-8h56v-56a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v56h56a8 8 0 0 1 8 8zm186.69-139.72l-255.94-226a39.85 39.85 0 0 0-53.45 0l-256 226a16 16 0 0 0-1.21 22.6L25.5 282.7a16 16 0 0 0 22.6 1.21L277.42 81.63a16 16 0 0 1 21.17 0L527.91 283.9a16 16 0 0 0 22.6-1.21l21.4-23.82a16 16 0 0 0-1.22-22.59z">
+                                    </path>
+                                </svg></i>Centros Vacunatorios</a></li>
+                </ul>
+            </li>
             <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/type-vaccine"><i nz-icon><svg aria-hidden="true"
                             focusable="false" data-prefix="fas" data-icon="syringe"
                             class="svg-inline--fa fa-syringe fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -26,25 +65,14 @@
                                 d="M201.5 174.8l55.7 55.8c3.1 3.1 3.1 8.2 0 11.3l-11.3 11.3c-3.1 3.1-8.2 3.1-11.3 0l-55.7-55.8-45.3 45.3 55.8 55.8c3.1 3.1 3.1 8.2 0 11.3l-11.3 11.3c-3.1 3.1-8.2 3.1-11.3 0L111 265.2l-26.4 26.4c-17.3 17.3-25.6 41.1-23 65.4l7.1 63.6L2.3 487c-3.1 3.1-3.1 8.2 0 11.3l11.3 11.3c3.1 3.1 8.2 3.1 11.3 0l66.3-66.3 63.6 7.1c23.9 2.6 47.9-5.4 65.4-23l181.9-181.9-135.7-135.7-64.9 65zm308.2-93.3L430.5 2.3c-3.1-3.1-8.2-3.1-11.3 0l-11.3 11.3c-3.1 3.1-3.1 8.2 0 11.3l28.3 28.3-45.3 45.3-56.6-56.6-17-17c-3.1-3.1-8.2-3.1-11.3 0l-33.9 33.9c-3.1 3.1-3.1 8.2 0 11.3l17 17L424.8 223l17 17c3.1 3.1 8.2 3.1 11.3 0l33.9-34c3.1-3.1 3.1-8.2 0-11.3l-73.5-73.5 45.3-45.3 28.3 28.3c3.1 3.1 8.2 3.1 11.3 0l11.3-11.3c3.1-3.2 3.1-8.2 0-11.4z">
                             </path>
                         </svg></i>Tipos de Vacunas</a></li>
-            <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/vaccine-lots"><i nz-icon><svg aria-hidden="true"
-                            focusable="false" data-prefix="fas" data-icon="boxes"
-                            class="svg-inline--fa fa-boxes fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 576 512">
-                            <path fill="currentColor"
-                                d="M560 288h-80v96l-32-21.3-32 21.3v-96h-80c-8.8 0-16 7.2-16 16v192c0 8.8 7.2 16 16 16h224c8.8 0 16-7.2 16-16V304c0-8.8-7.2-16-16-16zm-384-64h224c8.8 0 16-7.2 16-16V16c0-8.8-7.2-16-16-16h-80v96l-32-21.3L256 96V0h-80c-8.8 0-16 7.2-16 16v192c0 8.8 7.2 16 16 16zm64 64h-80v96l-32-21.3L96 384v-96H16c-8.8 0-16 7.2-16 16v192c0 8.8 7.2 16 16 16h224c8.8 0 16-7.2 16-16V304c0-8.8-7.2-16-16-16z">
-                            </path>
-                        </svg></i>Lotes de vacunas nacionales</a></li>
+
+
+
+
+
             <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/stats/main"><i nz-icon nzType="area-chart"
                         nzTheme="outline"></i>Estadisticas</a></li>
-            <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/province-vaccination"><i nz-icon>
 
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sitemap"
-                            class="svg-inline--fa fa-sitemap fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 640 512">
-                            <path fill="currentColor"
-                                d="M128 352H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32zm-24-80h192v48h48v-48h192v48h48v-57.59c0-21.17-17.23-38.41-38.41-38.41H344v-64h40c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H256c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h40v64H94.41C73.23 224 56 241.23 56 262.41V320h48v-48zm264 80h-96c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32zm240 0h-96c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z">
-                            </path>
-                        </svg></i>Lotes de vacunas provinciales</a></li>
 
             <div *ngIf="actualUser.role_id===3; then adminProvincial"> </div>
             <ng-template #adminProvincial>
@@ -60,14 +88,7 @@
                             </svg></i>Mis Lotes de Vacunas</a></li>
             </ng-template>
 
-            <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/municipality-vaccination"><i nz-icon>
-                        <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="building"
-                            class="svg-inline--fa fa-building fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512">
-                            <path fill="currentColor"
-                                d="M128 148v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12zm140 12h40c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12zm-128 96h40c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12zm128 0h40c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12zm-76 84v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm76 12h40c6.6 0 12-5.4 12-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12zm180 124v36H0v-36c0-6.6 5.4-12 12-12h19.5V24c0-13.3 10.7-24 24-24h337c13.3 0 24 10.7 24 24v440H436c6.6 0 12 5.4 12 12zM79.5 463H192v-67c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v67h112.5V49L80 48l-.5 415z">
-                            </path>
-                        </svg></i>Lotes de Vacunas municipales</a></li>
+
 
             <div *ngIf="actualUser.role_id===4; then adminMunicipal"> </div>
             <ng-template #adminMunicipal>
@@ -83,17 +104,28 @@
                             </svg></i>Mis Lotes de Vacunas</a></li>
             </ng-template>
 
-            <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/vacunatory-center-vaccination"><i nz-icon>
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clinic-medical"
-                            class="svg-inline--fa fa-clinic-medical fa-w-18" role="img"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <div *ngIf="actualUser.role_id===4; then adminMunicipal_centrosVac"> </div>
+            <ng-template #adminMunicipal_centrosVac>
+                <li nz-menu-item nzMatchRouter><a
+                        [routerLink]="['/dashboard/vacunatory-center/all-vacunatories-centers/']"><i nz-icon>
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hospital-alt"
+                            class="svg-inline--fa fa-hospital-alt fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512">
                             <path fill="currentColor"
-                                d="M288 115L69.47 307.71c-1.62 1.46-3.69 2.14-5.47 3.35V496a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V311.1c-1.7-1.16-3.72-1.82-5.26-3.2zm96 261a8 8 0 0 1-8 8h-56v56a8 8 0 0 1-8 8h-48a8 8 0 0 1-8-8v-56h-56a8 8 0 0 1-8-8v-48a8 8 0 0 1 8-8h56v-56a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v56h56a8 8 0 0 1 8 8zm186.69-139.72l-255.94-226a39.85 39.85 0 0 0-53.45 0l-256 226a16 16 0 0 0-1.21 22.6L25.5 282.7a16 16 0 0 0 22.6 1.21L277.42 81.63a16 16 0 0 1 21.17 0L527.91 283.9a16 16 0 0 0 22.6-1.21l21.4-23.82a16 16 0 0 0-1.22-22.59z">
+                                d="M544 96H416V32c0-17.7-14.3-32-32-32H192c-17.7 0-32 14.3-32 32v64H32c-17.7 0-32 14.3-32 32v368c0 8.8 7.2 16 16 16h544c8.8 0 16-7.2 16-16V128c0-17.7-14.3-32-32-32zM160 436c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-128c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm160 128c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-128c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm16-170c0 3.3-2.7 6-6 6h-26v26c0 3.3-2.7 6-6 6h-20c-3.3 0-6-2.7-6-6v-26h-26c-3.3 0-6-2.7-6-6v-20c0-3.3 2.7-6 6-6h26V86c0-3.3 2.7-6 6-6h20c3.3 0 6 2.7 6 6v26h26c3.3 0 6 2.7 6 6v20zm144 298c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40zm0-128c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40z">
                             </path>
-                        </svg></i>Lotes de vacunas de centros de vacunacion</a></li>
+                        </svg></i>Centros de Vacunación</a></li>
+            </ng-template>
 
-                        <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/vacunatory-center"><i nz-icon>
-                            </i>Centros de Vacunación 2</a></li>
+            <li nz-menu-item nzMatchRouter><a routerLink="/dashboard/vacunatory-center"><i nz-icon><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="h-square"
+                class="svg-inline--fa fa-h-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512">
+                <path fill="currentColor"
+                    d="M448 80v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48zm-112 48h-32c-8.837 0-16 7.163-16 16v80H160v-80c0-8.837-7.163-16-16-16h-32c-8.837 0-16 7.163-16 16v224c0 8.837 7.163 16 16 16h32c8.837 0 16-7.163 16-16v-80h128v80c0 8.837 7.163 16 16 16h32c8.837 0 16-7.163 16-16V144c0-8.837-7.163-16-16-16z">
+                </path>
+            </svg>
+                        
+                    </i>Mis Centros de Vacunación</a></li>
 
 
             <li nz-menu-item nzMatchRouter><a [routerLink]="['/dashboard/users']"><i nz-icon>
@@ -104,17 +136,20 @@
                                 d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z">
                             </path>
                         </svg></i>Usuarios</a></li>
-            <li nz-menu-item nzMatchRouter><a [routerLink]="['/dashboard/register']"><i nz-icon>
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-plus"
-                            class="svg-inline--fa fa-user-plus fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 640 512">
-                            <path fill="currentColor"
-                                d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z">
-                            </path>
-                        </svg></i>Registrar nuevo usuario</a></li>
+
+            <div *ngIf="actualUser.role_id!=5; then canCreateUser"> </div>
+            <ng-template #canCreateUser>
+                <li nz-menu-item nzMatchRouter><a [routerLink]="['/dashboard/register']"><i nz-icon>
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-plus"
+                                class="svg-inline--fa fa-user-plus fa-w-20" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                <path fill="currentColor"
+                                    d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z">
+                                </path>
+                            </svg></i>Registrar nuevo usuario</a></li>
+            </ng-template>
+
             <li nz-menu-item nzMatchRouter><a [routerLink]="['/dashboard/about']"><i nz-icon>
-
-
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle"
                             class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512">
@@ -133,7 +168,8 @@
                 <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
                     <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
                 </span>
-                <span class="d-none d-md-inline">{{"Panel: "+currentUser.email }} - {{"Rol: "+currentUser.role?.name}}</span>
+                <span class="d-none d-md-inline">{{"Panel: "+currentUser.email }} - {{"Rol:
+                    "+currentUser.role?.name}}</span>
             </div>
         </nz-header>
         <nz-content>

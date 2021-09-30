@@ -20,4 +20,11 @@
         </tr>
     </tbody>
 </nz-table>
+<div *ngIf="((actualUser.role_id==4)); then admin_municipal"> </div>
+<ng-template #admin_municipal>
+
+    <nz-form-item>
+        <button nz-button nzType="primary" [routerLink]="'create'">Agregar Centro de Vacunación</button>
+    </nz-form-item>
+</ng-template>
 

@@ -45,7 +45,8 @@
     </nz-select>
   </nz-form-item>
   <nz-form-item>
-    <button nz-button nzType="primary" (click)="TypeVaccineOnMunicipalityByDateStats(selected_vaccine_type)">Ver</button>
+    <button nz-button nzType="primary"
+      (click)="TypeVaccineOnMunicipalityByDateStats(selected_vaccine_type)">Ver</button>
   </nz-form-item>
 </ng-template>
 
@@ -55,7 +56,7 @@
   <td><button nz-button (click)="getAllVaccinesMunicipalitiesStates()" nzType="primary">Todas</button>
   </td>
 </ng-template>
---> 
+-->
 
 <div *ngIf="selected_chart_info=='Tipo de vacuna por provincias'; then chart_5"> </div>
 <ng-template #chart_5 nzLayout="vertical">
@@ -69,7 +70,8 @@
     </nz-select>
   </nz-form-item>
   <nz-form-item>
-    <button nz-button nzType="primary" (click)="TypeVaccineOnProvinceByProvinceStats(selected_vaccine_type)">Ver</button>
+    <button nz-button nzType="primary"
+      (click)="TypeVaccineOnProvinceByProvinceStats(selected_vaccine_type)">Ver</button>
   </nz-form-item>
 </ng-template>
 
@@ -81,7 +83,8 @@
       Provincia
     </nz-form-label>
     <nz-select name="Nombre de la Provincia" [(ngModel)]="selected_province" nzLayout="vertical">
-      <nz-option *ngFor="let province of provinceVaccine" [nzValue]="province.id" [nzLabel]="province.nombre"></nz-option>
+      <nz-option *ngFor="let province of provinceVaccine" [nzValue]="province.id" [nzLabel]="province.nombre">
+      </nz-option>
     </nz-select>
   </nz-form-item>
   <nz-form-item>
@@ -89,20 +92,11 @@
   </nz-form-item>
 </ng-template>
 
-
-
-<div>
-  <div>
-    <div style="display: block">
-      <canvas baseChart
-        [datasets]="radarChartData"
-        [options]="radarChartOptions"
-        [labels]="radarChartLabels"
-        [chartType]="radarChartType">
-        [plugins]="barChartPlugins" 
-    [legend]="barChartLegend" 
-    [colors]="barChartColors" 
-      </canvas>
-    </div>
-  </div>
+<div style="display: block">
+  <canvas baseChart [datasets]="radarChartData" [options]="radarChartOptions" [labels]="radarChartLabels"
+    [chartType]="radarChartType">
+    [plugins]="barChartPlugins"
+    [legend]="radarChartLegend"
+    [colors]="radarChartColors"
+  </canvas>
 </div>

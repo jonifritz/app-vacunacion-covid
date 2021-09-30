@@ -60,7 +60,7 @@ export class CreateComponent implements OnInit {
           response => {
             console.log(response);
             this.notificationService.success("Se han asignado " + this.createForm.value.received_lots + " vacunas a " + this.createForm.value.name);
-            this.router.navigate(['/municipality-vaccination']);
+            this.router.navigate(['/dashboard/vacunatory-center-vaccination']);
           },
           error => {
             this.notificationService.error("Ha ocurrido un error. Por favor intente nuevamente");

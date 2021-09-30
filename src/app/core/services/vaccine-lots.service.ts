@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 export interface VaccineLots {
@@ -36,4 +37,9 @@ export class VaccineLotsService {
   show(id): Observable<VaccineLots> {
     return this.httpClient.get<VaccineLots>(`${environment.apiUri}/vaccine-lots/`+id);
   }
+
+  allTypesVaccinesCountry(): Observable<VaccineLots> {
+    return this.httpClient.get<VaccineLots>(`${environment.apiUri}/vaccine-lots/alltypesVaccines/`).pipe(map(res => res));
+  }
+  
 }

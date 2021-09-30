@@ -22,38 +22,9 @@ export class BarChartComponent implements OnInit {
   public barChartPlugins = [];
 
   public barChartData: ChartDataSets[] = [];
-  //public barChartColors: Color[] = []
+  public barChartColors: Color[] = []
 
-  public barChartColors: any = [
-    {
-      backgroundColor: [
-        'rgba(69, 108, 160, 0.8)',
-        'rgba(244, 69, 32, 0.8)',
-        'rgba(32, 244, 51, 0.8)',
-        'rgba(49, 72, 145, 0.8)',
-        'rgba(42, 2, 249, 0.88)',
-        'rgba(4, 255, 40, 0.29)',
-        'rgba(51, 44, 49, 0.36)',
-        'rgba(50, 246, 255, 0.25)',
-        'rgba(21, 239, 214, 0.96)',
-        'rgba(255, 2, 25, 0.88)',
-        'rgba(216, 226, 26, 0.8)',
-        'rgba(0, 0, 0, 0.25)',
-        'rgba(254, 171, 207, 0.99)',
-        'rgba(254, 171, 0, 0.29)',
-        'rgba(255, 255, 25, 0.88)',
-        'rgba(200, 81, 52, 0.8)',
-        'rgba(10, 78, 16, 0.8)',
-        'rgba(42, 2, 30, 0.88)',
-        'rgba(254, 171, 0, 0.99)',
-        'rgba(4, 255, 40, 0.88)',
-        'rgba(103, 63, 102, 0.8)',
-        'rgba(226, 26, 166, 0.8)',
-        'rgba(50, 100, 96, 0.8)',
 
-      ]
-    }
-  ];
 
   selected_chart_info: string;
   selected_vaccine_type: number;
@@ -88,15 +59,15 @@ export class BarChartComponent implements OnInit {
       console.log(data2);
     });
 
-     this.provincevaccinationService.typesVaccinesByProvinceStats(74).subscribe(data2 => {
-       console.log(data2);
-     });
+    this.provincevaccinationService.typesVaccinesByProvinceStats(74).subscribe(data2 => {
+      console.log(data2);
+    });
 
   }
 
   TypeVaccineOnProvinceByDateStats(vaccine_id): void {
 
-    //let colors = ['teal', 'grey', 'pink', 'yellow', 'purple', 'teal'];
+    let colors = ['rgba(69, 108, 160, 0.8)', 'grey', 'pink', 'yellow', 'purple', 'teal'];
     //this.clear();    
     this.provincevaccinationService.showStats(vaccine_id).subscribe(data => {
       this.clear();
@@ -104,9 +75,10 @@ export class BarChartComponent implements OnInit {
       for (var i = 0; i < data['province_stats'].results.length; i++) {
         this.barChartData[0].data.push(data['province_stats'].results[i].sum_quantity)
         this.barChartLabels.push(data['province_stats'].results[i].date)
-        //this.barChartColors[i] = 
-          //backgroundColor: colors[i]
-        
+        this.barChartColors[i] = {
+          backgroundColor: colors[i]
+
+        }
       }
     })
   }
@@ -131,7 +103,7 @@ export class BarChartComponent implements OnInit {
 
   TypeVaccineOnMunicipalityByDateStats(vaccine_id): void {
 
-    //let colors = ['teal', 'grey', 'pink', 'yellow', 'purple', 'teal'];
+    let colors = ['#90d2d8', 'grey', 'pink', 'yellow', 'purple', 'teal'];
 
     this.municipalityvaccinationService.showStats(vaccine_id).subscribe(data => {
       console.log(data);
@@ -141,7 +113,7 @@ export class BarChartComponent implements OnInit {
         this.barChartData[0].data.push(data['municipality_stats'].results[i].sum_quantity)
         this.barChartLabels.push(data['municipality_stats'].results[i].date)
         this.barChartColors[i] = {
-          //backgroundColor: colors[i]
+          backgroundColor: colors[i]
         }
       }
     })
@@ -149,7 +121,7 @@ export class BarChartComponent implements OnInit {
 
   TypeVaccineOnProvinceByProvinceStats(vaccine_id): void {
 
-    let colors = ['teal', 'grey', 'pink', 'yellow', 'purple', 'teal'];
+    let colors = ['#f6b26b', 'grey', 'pink', 'yellow', 'purple', 'teal'];
 
     this.provincevaccinationService.statsPerProvince(vaccine_id).subscribe(data => {
       console.log(data);
@@ -167,7 +139,7 @@ export class BarChartComponent implements OnInit {
 
   TypeVaccineByProvinceStats(iso_id): void {
 
-    let colors = ['teal', 'grey', 'pink', 'yellow', 'purple', 'teal'];
+    let colors = ['#ea9999', 'grey', 'pink', 'yellow', 'purple', 'teal'];
 
     this.provincevaccinationService.typesVaccinesByProvinceStats(iso_id).subscribe(data => {
       console.log(data);
@@ -179,7 +151,7 @@ export class BarChartComponent implements OnInit {
         this.barChartColors[i] = {
           backgroundColor: colors[i]
         }
-        
+
       }
     })
   }

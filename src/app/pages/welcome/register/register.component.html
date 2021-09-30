@@ -1,7 +1,7 @@
 <nz-page-header>
     <nz-page-header-title>Nuevo Usuario</nz-page-header-title>
 </nz-page-header>
-<form nz-form [formGroup]='createForm' nzLayout="vertical">
+<form nz-form [formGroup]='createForm' nzLayout="vertical" autocomplete="off">
     <nz-form-item>
         <nz-form-label>
             Nombre
@@ -85,7 +85,7 @@
             </nz-form-label>
             <nz-select name="Centro de Vacunación" formControlName='vacunatory_center_id'>
                 <nz-option *ngFor="let vacunatory of vacunatories" [nzValue]="vacunatory.id"
-                    [nzLabel]="vacunatory.nombre"></nz-option>
+                    [nzLabel]="vacunatory.name"></nz-option>
             </nz-select>
         </nz-form-item>
     </ng-template>

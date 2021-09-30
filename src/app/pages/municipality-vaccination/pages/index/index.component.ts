@@ -15,7 +15,10 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.municipalityvaccionationService.index().subscribe(data => this.municipalityVaccination = data)
+    this.municipalityvaccionationService.index().subscribe(data => {
+      console.log(data);
+      this.municipalityVaccination = data;
+    },
+    );
   }
-
 }

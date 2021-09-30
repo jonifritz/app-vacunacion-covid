@@ -16,11 +16,24 @@ export class RadarChartComponent implements OnInit {
     responsive: true,
   };
 
+  public radarChartColors: any = [
+    {
+      backgroundColor: [
+        'rgba(69, 108, 160, 0.8)', 'rgba(244, 69, 32, 0.8)', 'rgba(32, 244, 51, 0.8)', 'rgba(49, 72, 145, 0.8)',
+        'rgba(42, 2, 249, 0.88)', 'rgba(4, 255, 40, 0.29)', 'rgba(51, 44, 49, 0.36)', 'rgba(50, 246, 255, 0.25)',
+        'rgba(21, 239, 214, 0.96)', 'rgba(255, 2, 25, 0.88)', 'rgba(216, 226, 26, 0.8)', 'rgba(0, 0, 0, 0.25)',
+        'rgba(254, 171, 207, 0.99)', 'rgba(254, 171, 0, 0.29)', 'rgba(255, 255, 25, 0.88)', 'rgba(200, 81, 52, 0.8)',
+        'rgba(10, 78, 16, 0.8)', 'rgba(42, 2, 30, 0.88)', 'rgba(254, 171, 0, 0.99)', 'rgba(4, 255, 40, 0.88)',
+        'rgba(103, 63, 102, 0.8)', 'rgba(226, 26, 166, 0.8)', 'rgba(50, 100, 96, 0.8)',
+      ]
+    }
+  ];
+
   selected_chart_info: string;
   selected_vaccine_type: number;
   selected_province: number;
 
-  lista: string[] = ["Vacunas por tipo en provincias por fecha",
+  lista: string [] = ["Vacunas por tipo en provincias por fecha",
     "Total vacunas por tipo en provincias por fecha (todas)",
     "Vacunas por tipo en municipios por fecha",
     "Total vacunas por tipo en municipios por fecha (todas)",
@@ -33,7 +46,7 @@ export class RadarChartComponent implements OnInit {
 
   public radarChartLabels: Label[] = [];
 
-  public radarChartColors: Color[] = []
+  //public radarChartColors: Color[] = []
 
   public radarChartData: ChartDataSets[] = [];
   public radarChartType: ChartType = 'radar';
@@ -45,30 +58,31 @@ export class RadarChartComponent implements OnInit {
   ngOnInit(): void {
     this.typevaccineService.index().subscribe(
       data => {
-      this.typeVaccine = data;
-      console.log(data)
-    });
+        this.typeVaccine = data;
+        console.log(data)
+      });
 
     this.provincevaccinationService.getProvinciesFromApi().subscribe(
-      data => 
-      this.provinceVaccine = data);
+      data =>
+        this.provinceVaccine = data);
 
-      //this.TypeVaccineByProvinceStats(74);
+    //this.TypeVaccineByProvinceStats(74);
 
   }
 
   TypeVaccineOnProvinceByDateStats(vaccine_id): void {
 
-    //let colors = ['teal', 'grey', 'pink', 'yellow', 'purple', 'teal'];
+    let colors = ['teal', 'grey', 'pink', 'yellow', 'purple', 'teal'];
 
     this.provincevaccinationService.showStats(vaccine_id).subscribe(data => {
-      console.log(data)
+      console.log(data);
+      this.clear();
       this.radarChartData[0].label = data['province_stats'].name
       for (var i = 0; i < data['province_stats'].results.length; i++) {
         this.radarChartData[0].data.push(data['province_stats'].results[i].sum_quantity)
         this.radarChartLabels.push(data['province_stats'].results[i].date)
         this.radarChartColors[i] = {
-          //backgroundColor: colors[i]
+          backgroundColor: colors[i]
         }
       }
     })
@@ -80,6 +94,7 @@ export class RadarChartComponent implements OnInit {
 
     this.provincevaccinationService.showAllStats().subscribe(data => {
       console.log(data);
+      this.clear();
       let results = data['province_stats'].results
       for (var j = 0; j < Object.keys(results).length; j++) {
         this.radarChartData[j] = ({ data: [], label: Object.keys(results)[j].toString() })
@@ -98,6 +113,7 @@ export class RadarChartComponent implements OnInit {
 
     this.municipalityvaccinationService.showStats(vaccine_id).subscribe(data => {
       console.log(data);
+      this.clear();
       this.radarChartData[0].label = data['municipality_stats'].name
       for (var i = 0; i < data['municipality_stats'].results.length; i++) {
         this.radarChartData[0].data.push(data['municipality_stats'].results[i].sum_quantity)
@@ -115,6 +131,7 @@ export class RadarChartComponent implements OnInit {
 
     this.provincevaccinationService.statsPerProvince(vaccine_id).subscribe(data => {
       console.log(data);
+      this.clear();
       this.radarChartData[0].label = data['province_stats_by_province'].name
       for (var i = 0; i < data['province_stats_by_province'].results.length; i++) {
         this.radarChartData[0].data.push(data['province_stats_by_province'].results[i].sum_quantity)
@@ -132,6 +149,7 @@ export class RadarChartComponent implements OnInit {
 
     this.provincevaccinationService.typesVaccinesByProvinceStats(iso_id).subscribe(data => {
       console.log(data);
+      this.clear();
       this.radarChartData[0].label = data['province_stats_by_type_vaccine'].name
       for (var i = 0; i < data['province_stats_by_type_vaccine'].results.length; i++) {
         this.radarChartData[0].data.push(data['province_stats_by_type_vaccine'].results[i].sum_quantity)
@@ -142,6 +160,17 @@ export class RadarChartComponent implements OnInit {
       }
     })
   }
+
+  clear(): void {
+    this.radarChartData = [
+      {
+        data: [],
+        label: ''
+      }
+    ];
+    this.radarChartLabels = [];
+  }
+
 
 
 
